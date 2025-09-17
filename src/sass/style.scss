@@ -36,14 +36,15 @@
 @import '50_objects/objects.main';
 @import '50_objects/objects.container';
 @import '50_objects/objects.columns';
-@import '50_objects/objects.form-elements';
 @import '50_objects/objects.sections';
-@import '50_objects/objects.headings';
-@import '50_objects/objects.text';
-@import '50_objects/objects.images';
 
+@import '60_components/components.headline';
+@import '60_components/components.text';
+@import '60_components/components.link';
+@import '60_components/components.images';
 @import '60_components/components.button';
 @import '60_components/components.icon-button';
+@import '60_components/components.form-elements';
 @import '60_components/components.link';
 @import '60_components/components.header';
 @import '60_components/components.footer';

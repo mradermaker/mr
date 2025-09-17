@@ -32,7 +32,7 @@ $form-primary: var(--color-primary);
 $form-primary-contrast: var(--color-primary-contrast);
 
 /* Input */
-.o-input {
+.c-input {
   appearance: none;
   box-sizing: border-box;
   width: 100%;
@@ -57,18 +57,6 @@ $form-primary-contrast: var(--color-primary-contrast);
     border-color: $form-focus;
   }
 
-  &::-webkit-inner-spin-button,
-  &::-webkit-clear-button,
-  &::-webkit-calendar-picker-indicator {
-    display: none;
-  }
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none; /* Remove spin buttons in Chrome, Safari */
-    margin: 0; /* Remove any margin (optional) */
-  }
-
   &::placeholder {
     color: $form-placeholder;
     font-weight: $font-weight-text;
@@ -77,7 +65,7 @@ $form-primary-contrast: var(--color-primary-contrast);
 }
 
 /* Select */
-.o-select {
+.c-select {
   appearance: none;
   box-sizing: border-box;
   width: 100%;
@@ -123,7 +111,7 @@ $form-primary-contrast: var(--color-primary-contrast);
 }
 
 /* Textarea */
-.o-textarea {
+.c-textarea {
   appearance: none;
   box-sizing: border-box;
   width: 100%;
@@ -156,7 +144,7 @@ $form-primary-contrast: var(--color-primary-contrast);
 }
 
 /* Label */
-.o-label {
+.c-label {
   padding: 0;
   margin: 0;
   display: flex;
@@ -166,23 +154,12 @@ $form-primary-contrast: var(--color-primary-contrast);
   gap: 0;
   color: inherit;
 
-  /* markup styling */
-  a {
-    @include plain-visited() {
-      color: $form-primary;
-      text-decoration: underline currentColor;
-      transition: text-decoration 0.25s ease-in-out;
-    }
-
-    @include hover-focus-active() {
-      text-decoration-color: transparent;
-    }
-  }
+  &__required {}
 }
 
 /* Control */
-.o-control {
-  $o-control: &;
+.c-control {
+  $c-control: &;
 
   position: relative;
   margin: 0;
@@ -288,13 +265,13 @@ $form-primary-contrast: var(--color-primary-contrast);
   }
 }
 
-/* Fieldset */
-.o-fieldset {
+.c-form {}
+
+.c-fieldset {
   display: flex;
   flex-direction: column;
   gap: 0;
   width: 100%;
 }
 
-.o-legend {
-}
+.c-legend {}
