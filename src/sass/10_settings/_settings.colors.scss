@@ -13,3 +13,22 @@
   --oo-color-error: #8B0000;
   --oo-color-error-contrast: #fff;
 }
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111;
+    --color-text: #F0F0F0;
+    --color-image-bg: #333;
+    --color-handwritten: #888;
+    --color-primary: #1E90FF;
+    --color-primary-contrast: #000;
+
+    --oo-color-success: #c3e3d1;
+    --oo-color-success-contrast: #000;
+    --oo-color-warning: #f3e2c0;
+    --oo-color-success-contrast: #000;
+    --oo-color-error: #efb1b2;
+    --oo-color-error-contrast: #000;
+  }
+}

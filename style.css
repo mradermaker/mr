@@ -348,6 +348,22 @@
   --oo-color-error-contrast: #fff;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111;
+    --color-text: #F0F0F0;
+    --color-image-bg: #333;
+    --color-handwritten: #888;
+    --color-primary: #1E90FF;
+    --color-primary-contrast: #000;
+    --oo-color-success: #c3e3d1;
+    --oo-color-success-contrast: #000;
+    --oo-color-warning: #f3e2c0;
+    --oo-color-success-contrast: #000;
+    --oo-color-error: #efb1b2;
+    --oo-color-error-contrast: #000;
+  }
+}
 @layer reset {
   html,
   body,
@@ -2085,6 +2101,13 @@ table {
   border-radius: 50%;
 }
 
+/* Input group */
+.c-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 /* Input */
 .c-input {
   -webkit-appearance: none;
@@ -2204,11 +2227,8 @@ table {
 .c-label {
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 0;
+  font-size: 14px;
+  line-height: 24px;
   color: inherit;
 }
 /* Control */
