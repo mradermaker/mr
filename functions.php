@@ -150,6 +150,11 @@ function mr_scripts() {
 add_action( 'wp_enqueue_scripts', 'mr_scripts' );
 
 /**
+ * ACF settings.
+ */
+require get_template_directory() . '/includes/acf.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
