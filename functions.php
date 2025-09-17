@@ -150,6 +150,11 @@ function mr_scripts() {
 add_action( 'wp_enqueue_scripts', 'mr_scripts' );
 
 /**
+ * Implement cleanup.
+ */
+require get_template_directory() . '/includes/cleanup.php';
+
+/**
  * ACF settings.
  */
 require get_template_directory() . '/includes/acf.php';
