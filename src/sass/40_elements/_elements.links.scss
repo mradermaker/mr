@@ -1,0 +1,25 @@
+$color-link: var(--color-primary) !default;
+
+a {
+  color: $color-link;
+  text-decoration: underline currentColor;
+  text-underline-offset: $link-underline-offset;
+  border: 0;
+  outline: $outline;
+  outline-offset: $outline-offset;
+  border-radius: $outline-border-radius;
+  transition: text-decoration 0.25s ease-in-out, outline-color 0.25s ease-in-out;
+
+  @include visited-active() {
+    color: $color-link;
+  }
+
+  @include hover-focus() {
+    color: $color-link;
+    text-decoration-color: transparent;
+  }
+
+  @include focus-visible() {
+    outline-color: currentColor;
+  }
+}

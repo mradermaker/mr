@@ -1,0 +1,10 @@
+mark {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+::selection,
+::-moz-selection {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}

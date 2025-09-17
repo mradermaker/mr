@@ -1,0 +1,6 @@
+button {
+  font-family: $font-family-button;
+  font-weight: $font-weight-button;
+  @include font-size($global-font-size, $global-line-height);
+  outline: none;
+}

@@ -1,0 +1,12 @@
+.o-section {
+  $o-section: &;
+
+  scroll-margin-top: $mobile-header-height;
+  scroll-snap-align: start;
+  padding-block: $mobile-section-padding;
+
+  @include media-breakpoint-up(xl) {
+    scroll-margin-top: $desktop-header-height;
+    padding-block: $desktop-section-padding;
+  }
+}

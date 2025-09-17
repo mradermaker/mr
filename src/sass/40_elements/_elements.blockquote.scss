@@ -1,0 +1,9 @@
+blockquote {
+  display: block;
+  padding-left: 1rem;
+  border-left: 0.5rem solid var(--color-primary);
+
+  p {
+    display: inline;
+  }
+}

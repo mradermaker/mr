@@ -1,0 +1,88 @@
+@use "sass:string";
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        string.slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+  @return $string;
+}
+
+// contrast (black or white)
+// get best contrast - black for light colors and white for dark colors
+@function contrast-color($color, $fallback: null) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  @if ($fallback) {
+    $fallback: str-replace($fallback, 'var(');
+    $fallback: str-replace($fallback, ')');
+  }
+  $r: if(
+    $fallback,
+    var(#{$color + '-r'}, var(#{$fallback + '-r'})),
+    var(#{$color + '-r'})
+  );
+  $g: if(
+    $fallback,
+    var(#{$color + '-g'}, var(#{$fallback + '-g'})),
+    var(#{$color + '-g'})
+  );
+  $b: if(
+    $fallback,
+    var(#{$color + '-b'}, var(#{$fallback + '-b'})),
+    var(#{$color + '-b'})
+  );
+
+  $calc: calc(
+    ((((#{$r} * 299) + (#{$g} * 587) + (#{$b} * 114)) / 1000) - 128) * -1000
+  );
+  @return rgb($calc, $calc, $calc);
+}
+
+// opposite contrast (black or white)
+// get worst contrast - white for light colors and black for dark colors
+@function opposite-contrast-color($color, $fallback: null) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  @if ($fallback) {
+    $fallback: str-replace($fallback, 'var(');
+    $fallback: str-replace($fallback, ')');
+  }
+  $r: if(
+    $fallback,
+    var(#{$color + '-r'}, var(#{$fallback + '-r'})),
+    var(#{$color + '-r'})
+  );
+  $g: if(
+    $fallback,
+    var(#{$color + '-g'}, var(#{$fallback + '-g'})),
+    var(#{$color + '-g'})
+  );
+  $b: if(
+    $fallback,
+    var(#{$color + '-b'}, var(#{$fallback + '-b'})),
+    var(#{$color + '-b'})
+  );
+
+  $complementary-r: calc(255 - #{$r});
+  $complementary-g: calc(255 - #{$g});
+  $complementary-b: calc(255 - #{$b});
+  $calc-contrast: calc(
+    (
+        (
+            (
+                (#{$complementary-r} * 299) + (#{$complementary-g} * 587) +
+                  (#{$complementary-b} * 114)
+              ) / 1000
+          ) - 128
+      ) * -1000
+  );
+  @return rgb($calc-contrast, $calc-contrast, $calc-contrast);
+}

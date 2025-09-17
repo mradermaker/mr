@@ -1,0 +1,6 @@
+.o-main {
+  /* Do not show the outline on the skip link target. */
+  &[tabindex='-1']:focus {
+    outline: 0;
+  }
+}
