@@ -186,3 +186,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Remove Text Editor
+ */
+function remove_editor_from_pages() {
+	remove_post_type_support('page', 'editor');
+	remove_post_type_support('post', 'editor');
+}
+add_action('init', 'remove_editor_from_pages', 100);
