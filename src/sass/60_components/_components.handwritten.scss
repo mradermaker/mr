@@ -1,0 +1,15 @@
+.c-handwritten {
+  font-family: $font-family-handwritten;
+  font-weight: $font-weight-handwritten;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  word-spacing: 0.05em;
+  color: var(--color-handwritten);
+  position: absolute;
+
+  &__icon {
+    color: currentColor;
+  }
+
+  &__text {}
+}

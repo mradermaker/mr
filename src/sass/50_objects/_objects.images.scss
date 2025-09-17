@@ -1,4 +1,17 @@
 .o-figure {
+  &__placeholder {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    background-color: var(--color-image-bg);
+    border: 0.125rem solid var(--color-text);
+    &.--circle {
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+    }
+  }
+  &__caption {
+  }
 }
 
 .o-image {
@@ -7,7 +20,4 @@
   height: auto;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-}
-
-.o-figcaption {
 }
