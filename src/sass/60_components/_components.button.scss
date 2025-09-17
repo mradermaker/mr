@@ -1,1 +1,42 @@
-.c-button {}
+.c-button {
+  $c-button: &;
+
+  display: inline-block;
+  position: relative;
+  font-family: $font-family-button;
+  font-weight: $font-weight-button;
+  @include font-size($global-font-size, $global-line-height);
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 2rem;
+  color: var(--color-primary-contrast);
+  background-color: var(--color-primary);
+  border-radius: $border-radius;
+  border: 2px solid var(--color-primary);
+  outline: $outline;
+  outline-offset: $outline-offset;
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, outline-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  cursor: pointer;
+
+  @include visited-active() {
+    color: var(--color-primary-contrast);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  @include hover() {
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  @include focus-visible() {
+    outline-color: var(--color-primary);
+  }
+
+  @include disabled() {
+    opacity: 0.4;
+    outline-color: transparent;
+    cursor: default;
+  }
+}

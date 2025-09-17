@@ -2101,6 +2101,44 @@ table {
   border-radius: 50%;
 }
 
+.c-button {
+  display: inline-block;
+  position: relative;
+  font-family: "Public Sans", "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 28px;
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 2rem;
+  color: var(--color-primary-contrast);
+  background-color: var(--color-primary);
+  border-radius: 0.5rem;
+  border: 2px solid var(--color-primary);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, outline-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  cursor: pointer;
+}
+.c-button:visited, .c-button:active {
+  color: var(--color-primary-contrast);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.c-button:hover {
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+}
+.c-button:focus-visible {
+  outline-color: var(--color-primary);
+}
+.c-button:disabled {
+  opacity: 0.4;
+  outline-color: transparent;
+  cursor: default;
+}
+
 /* Input group */
 .c-input-group {
   display: flex;
