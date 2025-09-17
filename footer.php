@@ -11,22 +11,21 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mr' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'mr' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'mr' ), 'mr', '<a href="http://www.monika-radermaker.de">Monika Radermaker</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	<footer class="c-footer">
+		<nav id="footer-nav" class="c-footer__nav c-footer-nav" aria-label="<?php echo esc_html_e('Footer-Navigation', 'mr',); ?>" role="navigation">
+			<?php wp_nav_menu([
+				'theme_location'	=> 'footer-nav',
+				'menu_class'		=> 'c-footer-nav__list',
+				'container'			=> false,
+				'before'			=> '',
+				'after'				=> '',
+				'link_before'		=> '',
+				'link_after'		=> '',
+				'items_wrap'		=>'<ul id="%1$s" class="%2$s" role="menu">%3$s</ul>',
+				'walker'			=> '',
+			]); ?>
+		</nav>
+	</footer>
 
 <?php wp_footer(); ?>
 
