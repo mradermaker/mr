@@ -2354,6 +2354,15 @@ table {
   background-color: var(--color-error);
 }
 
+.c-footer__top {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.c-footer-nav__list {
+  display: flex;
+  gap: 0.5rem;
+}
 .c-handwritten {
   font-family: "Sour Gummy", "Public Sans", "Open Sans", sans-serif;
   font-weight: 200;

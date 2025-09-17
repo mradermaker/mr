@@ -1,0 +1,24 @@
+.c-footer-nav {
+  $c-footer-nav: &;
+
+  &__list {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  &__item {}
+
+  &__link {}
+
+  &__sub-menu {}
+
+  .--has-children {}
+
+  .--top-level {}
+
+  .--ancestor {}
+
+  .--active {}
+
+  .--home {}
+}
