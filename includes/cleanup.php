@@ -63,6 +63,19 @@ function cleanup() {
 add_action('init', 'cleanup');
 
 /**
+ *  Dequeue Styles and Scripts
+ */
+add_action( 'wp_enqueue_scripts', 'dequeue_styles_scripts', 20 );
+function dequeue_styles_scripts() {
+	wp_dequeue_style( 'wp-block-library' );
+	wp_deregister_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library-theme' );
+	wp_deregister_style( 'wp-block-library-theme' );
+	wp_dequeue_style( 'wc-block-style' );
+	wp_deregister_style( 'wc-block-style' );
+}
+
+/**
  * Remove emojis
  */
 function disable_emojis_tinymce($plugins) {
