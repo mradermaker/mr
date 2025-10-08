@@ -29,6 +29,12 @@ if (!function_exists('get_icon')) {
         // Match the icon name to the correct file
         $icon = match ($name) {
             'handwritten-arrow-down' => 'handwritten-arrow-down',
+            'placeholder' => 'image',
+            'code' => 'code',
+            'design' => 'palette',
+            'website' => 'app-window',
+            'accessibility' => 'person-standing',
+            'learning' => 'shapes',
             default => null,
         };
 
