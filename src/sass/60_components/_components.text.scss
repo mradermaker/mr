@@ -1,8 +1,6 @@
 .c-text {
-  &.--is-wysiwyg {
-    > *:not(:last-child) {
-      margin-bottom: $global-line-height;
-    }
+  > *:not(:last-child) {
+    margin-bottom: $global-line-height;
   }
 
   h1 {
