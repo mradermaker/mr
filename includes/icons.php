@@ -28,7 +28,8 @@ if (!function_exists('get_icon')) {
 
         // Match the icon name to the correct file
         $icon = match ($name) {
-            'handwritten-arrow-down' => 'handwritten-arrow-down',
+            'handwritten-arrow-down' => 'handwritten-arrow-down-curvy',
+            'handwritten-arrow-top' => 'handwritten-arrow-top-curved',
             'placeholder' => 'image',
             'code' => 'code',
             'design' => 'palette',

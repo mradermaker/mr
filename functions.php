@@ -160,8 +160,11 @@ require get_template_directory() . '/includes/acf.php';
 /**
  * Implement usefull custom functions.
  */
-// SVG Icons
-require_once get_template_directory() . '/includes/get-icon.php';
+// Icons
+require_once get_template_directory() . '/includes/icons.php';
+
+// Images
+require_once get_template_directory() . '/includes/images.php';
 
 /**
  * Implement the Custom Header feature.
