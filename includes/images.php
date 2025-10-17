@@ -32,8 +32,8 @@ add_image_size('image-xxxl', '1920');
  * @return string|null
  * @use get_picture($image, [
  *     'loading'      => 'eager',
- *     'pictureClass' => 'c-hero__picture',
- *     'imageClass'   => 'c-hero__image',
+ *     'additionalPictureClass' => 'c-hero__picture',
+ *     'additionalImageClass'   => 'c-hero__image',
  * ]);
  */
 
