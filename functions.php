@@ -134,6 +134,7 @@ function mr_scripts() {
 	wp_enqueue_style( 'mr-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'mr-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'mr-app', get_template_directory_uri() . '/src/js/app.js', array(), _S_VERSION, true );
 	// wp_enqueue_script( 'mr-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'mr_scripts' );
