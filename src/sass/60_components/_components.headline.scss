@@ -44,7 +44,7 @@
 
   &.--h6 {
     @include font-size($mobile-h6-font-size, $mobile-h6-line-height);
-    @include media-breakpoint-up(xxl) {
+    @include media-breakpoint-up(xl) {
       @include font-size($desktop-h6-font-size, $desktop-h6-line-height);
     }
   }

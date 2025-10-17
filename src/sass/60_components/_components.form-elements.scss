@@ -15,7 +15,7 @@ $form-border-color: var(--color-text);
 $form-radius: $border-radius; // Border radius
 $form-radius-small: $border-radius-small; // Border radius small
 $form-outline: 1px solid transparent;
-$form-focus: var(--color-primary);
+$form-focus: var(--color-text);
 $form-duration: 0.25s; // Transition duration
 $form-timing: ease-in-out; // Transition timing
 $form-svg-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E");
@@ -28,8 +28,8 @@ $form-shadow: 0 0 5px var(--color-text);
 $form-dropdown: var(--color-bg);
 $form-selected: var(--color-text);
 $form-placeholder: var(--color-text);
-$form-primary: var(--color-primary);
-$form-primary-contrast: var(--color-primary-contrast);
+$form-primary: var(--color-text);
+$form-primary-contrast: var(--color-bg);
 
 /* Input */
 .c-input {

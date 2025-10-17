@@ -1,10 +1,10 @@
 mark {
-  background: var(--color-primary);
-  color: var(--color-primary-contrast);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 ::selection,
 ::-moz-selection {
-  background: var(--color-primary);
-  color: var(--color-primary-contrast);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
