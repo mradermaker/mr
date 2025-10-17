@@ -9,4 +9,9 @@
     scroll-margin-top: $desktop-header-height;
     padding-block: $desktop-section-padding;
   }
+
+  // remove padding if sections are underneath each other
+  & + & {
+    padding-top: 0;
+  }
 }
