@@ -54,7 +54,7 @@ endif;
 
 if ( ! function_exists( 'mr_entry_footer' ) ) :
 	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
+	 * Prints HTML with meta information for the categories and tags.
 	 */
 	function mr_entry_footer() {
 		// Hide category and tag text for pages.
@@ -72,25 +72,6 @@ if ( ! function_exists( 'mr_entry_footer' ) ) :
 				/* translators: 1: list of tags. */
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'mr' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
-		}
-
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'mr' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				)
-			);
-			echo '</span>';
 		}
 
 		edit_post_link(
