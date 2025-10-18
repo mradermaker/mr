@@ -3,7 +3,13 @@
 
   &__list {
     display: flex;
-    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+
+    @include media-breakpoint-up(xl) {
+      justify-content: flex-end;
+    }
   }
   
   &__item {}

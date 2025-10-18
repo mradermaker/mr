@@ -1,15 +1,35 @@
 .c-footer {
-    &__container {}
+  padding-top: $mobile-section-padding;
 
-    &__row {}
+  @include media-breakpoint-up(xl) {
+    padding-top: $desktop-section-padding;
+  }
 
-    &__top {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
+  &__container {}
+
+  &__top {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding-block: 1rem;
+    border-top: 2px solid var(--color-text);
+
+    @include media-breakpoint-up(xl) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+      gap: 2rem;
     }
+  }
 
-    &__copyright {}
+  &__copyright {}
 
-    &__nav {}
+  &__nav {}
 }
