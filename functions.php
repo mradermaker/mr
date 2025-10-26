@@ -173,6 +173,9 @@ require_once get_template_directory() . '/includes/icons.php';
 // Images
 require_once get_template_directory() . '/includes/images.php';
 
+// Login messages
+require_once get_template_directory() . '/includes/login-messages.php';
+
 /**
  * Implement the Custom Header feature.
  */

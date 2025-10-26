@@ -8,4 +8,8 @@
   @include media-breakpoint-up(md) {
     flex-direction: row;
   }
+
+  &.--position-center {
+    justify-content: center;
+  }
 }

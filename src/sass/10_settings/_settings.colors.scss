@@ -4,12 +4,12 @@
   --color-image-bg: #ddd;
   --color-handwritten: #3d53b1;
 
-  --oo-color-success: #006400;
-  --oo-color-success-contrast: #fff;
-  --oo-color-warning: #BA8E23;
-  --oo-color-success-contrast: #fff;
-  --oo-color-error: #8B0000;
-  --oo-color-error-contrast: #fff;
+  --color-success: #006400;
+  --color-success-contrast: #fff;
+  --color-warning: #BA8E23;
+  --color-success-contrast: #fff;
+  --color-error: #8B0000;
+  --color-error-contrast: #fff;
 }
 
 // dark mode
@@ -20,11 +20,11 @@
     --color-image-bg: #333;
     --color-handwritten: #498fd4;
 
-    --oo-color-success: #c3e3d1;
-    --oo-color-success-contrast: #000;
-    --oo-color-warning: #f3e2c0;
-    --oo-color-success-contrast: #000;
-    --oo-color-error: #efb1b2;
-    --oo-color-error-contrast: #000;
+    --color-success: #c3e3d1;
+    --color-success-contrast: #000;
+    --color-warning: #f3e2c0;
+    --color-success-contrast: #000;
+    --color-error: #efb1b2;
+    --color-error-contrast: #000;
   }
 }

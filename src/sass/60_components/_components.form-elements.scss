@@ -31,6 +31,13 @@ $form-placeholder: var(--color-text);
 $form-primary: var(--color-text);
 $form-primary-contrast: var(--color-bg);
 
+/* Input group */
+.c-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 /* Input */
 .c-input {
   appearance: none;
@@ -147,11 +154,8 @@ $form-primary-contrast: var(--color-bg);
 .c-label {
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 0;
+  font-size: $small-font-size;
+  line-height: $small-line-height;
   color: inherit;
 
   &__required {}

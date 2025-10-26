@@ -10,11 +10,12 @@
   margin: 0;
   padding: 0.5rem 2rem;
   color: var(--color-text);
+  background: transparent;
   border: 2px solid var(--color-text);
   text-decoration: none;
   outline: $outline;
   outline-offset: $outline-offset;
-  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, outline-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, text-decoration 0.25s ease-in-out, outline-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
   cursor: pointer;
 
   @include visited-active() {
@@ -38,5 +39,26 @@
     cursor: default;
   }
 
+  &.--active {
+    color: var(--color-bg);
+    background: var(--color-text);
+  }
+
   &.--ghost {}
+
+  &.--link {
+    text-decoration: underline currentColor;
+    text-underline-offset: $link-underline-offset;
+    border-color: transparent;
+    color: var(--color-text);
+    background-color: transparent;
+
+    @include hover() {
+      text-decoration-color: transparent;
+    }
+
+    @include focus-visible() {
+      text-decoration-color: transparent;
+    }
+  }
 }

@@ -1,0 +1,21 @@
+.c-login {
+  &__row {}
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include media-breakpoint-up(xl) {
+      gap: 2rem;
+    }
+  }
+
+  &__info-messages {}
+
+  &__form {}
+
+  &__logged-in {}
+
+  &__button-group {}
+}

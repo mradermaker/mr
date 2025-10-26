@@ -26,29 +26,58 @@ get_header();
         </div>
     </section>
 
-    <section class="o-section">
-        <div class="o-container">
-            <div class="o-row --position-center c-login">
-                <form class="c-login__form o-form o-col-12 o-col-xl-8" name="loginform" id="loginform" action="<?php echo esc_url( wp_login_url() ); ?>" method="post">
+    <section class="c-login o-section o-container">
+        <div class="c-login__row o-row --position-center">
+            <div class="c-login__content o-col-12 o-col-xl-8">
+                <?php
+                $messages = get_login_messages();
+
+                foreach ($messages as $message) {
+                    $type = $message['type']; // error | success | info
+                    $text = $message['text'];
+                    $role = ($type === 'error') ? 'alert' : 'status';
+                    $aria = ($type === 'error') ? 'assertive' : 'polite';
+                    ?>
+                    <!--
                     <p class="c-info-messages --is-error" role="alert" aria-live="assertive" hidden></p>
                     <p class="c-info-messages" role="status" aria-live="polite" hidden></p>
-
-                    <input type="hidden" name="redirect_to" value="<?php echo esc_url( home_url('/portfolio') ); ?>" />
+                    -->
+                    <p class="c-login__info-messages c-info-messages --is-<?php echo esc_attr($type); ?>" role="<?php echo esc_attr($role); ?>" aria-live="<?php echo esc_attr($aria); ?>">
+                        <?php echo esc_html($text); ?>
+                    </p>
+                <?php } ?>
+                <?php if (is_user_logged_in()) { ?>
+                    <?php
+                    $current_user = wp_get_current_user();
+                    $logout_url   = wp_logout_url(get_permalink(MR_LOGIN_PAGE_ID));
+                    ?>
+                    <div class="c-login__logged-in c-text">
+                        <h2>Hallo <?php echo esc_html($current_user->display_name); ?>!</h2>
+                        <p>Du bist angemeldet und siehst vertrauliche Arbeitsproben. Bitte nicht weiterleiten oder öffentlich teilen.</p>
+                    </div>
+                    <div class="c-login__button-group c-button-group">
+                        <a class="c-button" href="<?php echo esc_url(home_url('/')); ?>">Zum Portfolio</a>
+                        <a class="c-button --link" href="<?php echo esc_url($logout_url); ?>">Abmelden</a>
+                    </div>
+                <?php } else { ?>
+                    <form class="c-login__form o-form" name="loginform" id="loginform" action="<?php echo esc_url(wp_login_url()); ?>" method="post">
+                        <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/')); ?>" />
 
                     <div class="c-input-group">
                         <label for="user_login" class="c-input-group__label c-label">Benutzername oder E-Mail <span class="c-label__required">* (Pflichtfeld)</span></label>
-                        <input type="text" name="user_login" id="user_login" class="c-input-group__field c-input" />
+                            <input type="text" name="log" id="user_login" class="c-input-group__field c-input" autocapitalize="off" autocomplete="username" required="required" />
                         <div class="c-input-group__error" hidden></div>
                     </div>
 
                     <div class="c-input-group">
                         <label for="user_password" class="c-input-group__label c-label">Passwort <span class="c-label__required">* (Pflichtfeld)</span></label>
-                        <input type="password" name="user_password" id="user_password" class="c-input-group__field c-input" />
+                            <input type="password" name="pwd" id="user_pass" class="c-input-group__field c-input" autocomplete="current-password" spellcheck="false" required="required" />
                         <div class="c-input-group__error" hidden></div>
                     </div>
 
                     <input type="submit" name="wp-submit" class="c-button" value="Anmelden" />
                 </form>
+                <?php } ?>
             </div>
         </div>
     </section>
