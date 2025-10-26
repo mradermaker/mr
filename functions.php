@@ -155,6 +155,16 @@ require get_template_directory() . '/includes/navigations.php';
 require get_template_directory() . '/includes/acf.php';
 
 /**
+ * User roles.
+ */
+require_once get_template_directory() . '/includes/user-roles.php';
+
+/**
+ * Content protection and redirects.
+ */
+require_once get_template_directory() . '/includes/access-control.php';
+
+/**
  * Implement usefull custom functions.
  */
 // Icons
