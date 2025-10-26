@@ -8,8 +8,8 @@
 /**
  * Save json files in custom folder
  */
-add_filter('acf/settings/save_json', 'my_acf_json_save_point');
-function my_acf_json_save_point( $path ) {
+add_filter('acf/settings/save_json', 'mr_acf_json_save_point');
+function mr_acf_json_save_point( $path ) {
     
     // update path
     $path = get_stylesheet_directory() . '/acf';
@@ -21,8 +21,8 @@ function my_acf_json_save_point( $path ) {
 /**
  * Load json files from custom folder
  */
-add_filter('acf/settings/load_json', 'my_acf_json_load_point');
-function my_acf_json_load_point( $paths ) {
+add_filter('acf/settings/load_json', 'mr_acf_json_load_point');
+function mr_acf_json_load_point( $paths ) {
     
     // remove original path (optional)
     unset($paths[0]);

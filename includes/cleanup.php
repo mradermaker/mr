@@ -8,7 +8,7 @@
 /**
  * Remove unnecessary content
  */
-function cleanup() {
+function mr_cleanup() {
 	// Remove unnecessary content in wp_head
 	remove_action('wp_head', 'wp_generator');
 	remove_action('wp_head', 'rsd_link');
@@ -60,13 +60,13 @@ function cleanup() {
 	// Remove filter of the oEmbed result before any HTTP requests are made.
 	remove_filter('pre_oembed_result', 'wp_filter_pre_oembed_result', 10);
 }
-add_action('init', 'cleanup');
+add_action('init', 'mr_cleanup');
 
 /**
  *  Dequeue Styles and Scripts
  */
-add_action( 'wp_enqueue_scripts', 'dequeue_styles_scripts', 20 );
-function dequeue_styles_scripts() {
+add_action( 'wp_enqueue_scripts', 'mr_dequeue_styles_scripts', 20 );
+function mr_dequeue_styles_scripts() {
 	wp_dequeue_style( 'wp-block-library' );
 	wp_deregister_style( 'wp-block-library' );
 	wp_dequeue_style( 'wp-block-library-theme' );
