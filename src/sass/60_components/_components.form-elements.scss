@@ -3,6 +3,7 @@ $form-margin: 0; // Margin
 $form-padding: 0.25rem 0.75rem; // Padding
 $form-padding-top: 0.25rem; // Padding top
 $form-padding-right: 0.75rem; // Padding right
+$form-font-size: $global-font-size;
 $form-line-height: $global-line-height;
 $form-remove-wrapper: 1.5rem; // Size of the remove background //
 $form-remove-size: 1.25rem; // Size of the remove icon //
@@ -14,8 +15,8 @@ $form-border: 1px solid;
 $form-border-color: var(--color-text);
 $form-radius: $border-radius; // Border radius
 $form-radius-small: $border-radius-small; // Border radius small
-$form-outline: 1px solid transparent;
-$form-focus: var(--color-text);
+$form-outline: $outline;
+$form-focus: var(--color-primary);
 $form-duration: 0.25s; // Transition duration
 $form-timing: ease-in-out; // Transition timing
 $form-svg-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E");
@@ -31,11 +32,28 @@ $form-placeholder: var(--color-text);
 $form-primary: var(--color-text);
 $form-primary-contrast: var(--color-bg);
 
+/* Form */
+.c-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Fieldset & legend */
+.c-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.c-legend {}
+
 /* Input group */
 .c-input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 /* Input */
@@ -47,7 +65,7 @@ $form-primary-contrast: var(--color-bg);
   padding: $form-padding;
   resize: vertical;
   font-family: inherit;
-  font-size: 100%;
+  font-size: $form-font-size;
   line-height: $form-line-height;
   color: $form-color;
   background: $form-bg;
@@ -55,8 +73,7 @@ $form-primary-contrast: var(--color-bg);
   border-radius: $form-radius;
   outline: $form-outline;
   -moz-appearance: textfield;
-  transition: outline-color $form-duration $form-timing,
-    border-color $form-duration $form-timing;
+  transition: outline-color $form-duration $form-timing, border-color $form-duration $form-timing;
   height: 2.375rem;
 
   @include focus-all() {
@@ -268,14 +285,3 @@ $form-primary-contrast: var(--color-bg);
     }
   }
 }
-
-.c-form {}
-
-.c-fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  width: 100%;
-}
-
-.c-legend {}
