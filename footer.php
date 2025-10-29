@@ -17,7 +17,7 @@
                 <div class="c-footer__logo u-position-relative">
                     <span class="c-header__text">MR</span>
                     <div class="c-handwritten --footer">
-                        <?php get_icon('handwritten-arrow-down', true, ['class' => 'c-handwritten__icon --arrow-down',]); ?>
+                        <?php get_icon('handwritten-arrow-right', true, ['class' => 'c-handwritten__icon --arrow-down',]); ?>
                         <span class="c-handwritten__text">Logo <span class="u-screen-reader-only">(Platzhalter)</span></span>
                     </div>
                 </div>

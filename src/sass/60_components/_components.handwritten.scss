@@ -1,15 +1,45 @@
 .c-handwritten {
+  $c-handwritten: &;
+
   font-family: $font-family-handwritten;
   font-weight: $font-weight-handwritten;
+  line-height: 20px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   word-spacing: 0.05em;
   color: var(--color-handwritten);
   position: absolute;
+  width: min(50%, 10rem);
 
   &__icon {
+    position: absolute;
     color: currentColor;
+    width: 4rem;
+    height: 4rem;
   }
 
-  &__text {}
+  &__text {
+  }
+
+  &.--profile {
+    bottom: 100%;
+    left: -0.5rem;
+    #{$c-handwritten}__icon {
+      top: calc(100% + 0.25rem);
+      rotate: -90deg;
+    }
+  }
+
+  &.--footer {
+    width: 100%;
+    bottom: calc(100% + 0.5rem);
+    left: 0;
+    #{$c-handwritten}__icon {
+      width: 2rem;
+      top: -0.5rem;
+      left: -2.5rem;
+      scale: 1 -1;
+      rotate: 22.5deg;
+    }
+  }
 }
