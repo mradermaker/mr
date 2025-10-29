@@ -30,6 +30,7 @@ if (!function_exists('get_icon')) {
         $icon = match ($name) {
             'handwritten-arrow-down' => 'handwritten-arrow-down-curvy',
             'handwritten-arrow-top' => 'handwritten-arrow-top-curved',
+            'handwritten-arrow-right' => 'handwritten-arrow-right-curved',
             'placeholder' => 'image',
             'code' => 'code',
             'design' => 'palette',
