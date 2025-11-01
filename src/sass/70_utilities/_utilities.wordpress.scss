@@ -1,10 +1,10 @@
 // Sticky Header for logged in users
 body {
   &.admin-bar {
-    .c-header.--fixed {
-      top: 0;
+    .c-header {
+      top: 46px;
       @media (min-width: 783px) {
-        top: 2rem;
+        top: 32px;
       }
     }
   }

@@ -1,1 +1,48 @@
-.c-icon-button {}
+.c-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: $icon-wrapper-size;
+  height: $icon-wrapper-size;
+  color: var(--color-bg);
+  background: var(--color-text);
+  border: 2px solid var(--color-text);
+  border-radius: 0.125rem;
+  outline: $outline;
+  outline-offset: $outline-offset;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, outline-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  cursor: pointer;
+
+  @include visited-active() {
+    color: var(--color-bg);
+    background: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  @include hover() {
+    color: var(--color-bg);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  @include focus-visible() {
+    outline-color: var(--color-text);
+  }
+
+  @include disabled() {
+    opacity: 0.4;
+    outline-color: transparent;
+    cursor: default;
+  }
+
+  &__icon {
+    width: $icon-size-small;
+    height: $icon-size-small;
+  }
+
+  &__text {}
+}

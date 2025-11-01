@@ -1,4 +1,15 @@
 .o-main {
+  padding-top: $mobile-header-height;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: $desktop-header-height;
+  }
+
+  // No header
+  body:not(:has(> header)) & {
+    padding-top: 0;
+  }
+
   /* Do not show the outline on the skip link target. */
   &[tabindex='-1']:focus {
     outline: 0;

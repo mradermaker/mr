@@ -18,7 +18,22 @@
     height: 4rem;
   }
 
-  &__text {
+  &__text {}
+
+  &.--logo {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: flex-start;
+    #{$c-handwritten}__icon {
+      position: relative;
+      width: 2rem;
+      height: 2rem;
+      rotate: -90deg;
+    }
   }
 
   &.--profile {
@@ -36,7 +51,8 @@
     left: 0;
     #{$c-handwritten}__icon {
       width: 2rem;
-      top: -0.5rem;
+      height: auto;
+      top: 0.5rem;
       left: -2.5rem;
       scale: 1 -1;
       rotate: 22.5deg;

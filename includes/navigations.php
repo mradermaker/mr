@@ -49,7 +49,7 @@ function mr_nav_menu_css_class($classes, $item, $args, $depth) {
     }
 
     // Add `is-active` class.
-    if (in_array('current-menu-item', $classes, true)) {
+    if (in_array('current-menu-item', $classes, true) || in_array('current_page_parent', $classes, true)) {
         $_classes[] = '--active';
     }
 
