@@ -30,6 +30,9 @@ if (!function_exists('get_icon')) {
         $icon = match ($name) {
             'menu' => 'menu',
             'close' => 'close',
+            'error' => 'error',
+            'success' => 'check',
+            'warning' => 'triangle-alert',
             'handwritten-arrow-down' => 'handwritten-arrow-down-curvy',
             'handwritten-arrow-top' => 'handwritten-arrow-top-curved',
             'handwritten-arrow-right' => 'handwritten-arrow-right-curved',
@@ -41,6 +44,8 @@ if (!function_exists('get_icon')) {
             'website' => 'app-window',
             'accessibility' => 'person-standing',
             'learning' => 'shapes',
+            'github' => 'github',
+            'codepen' => 'codepen',
             default => null,
         };
 

@@ -5,6 +5,14 @@
   color: var(--color-text);
   background-color: var(--color-bg);
   border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__icon {
+    width: $icon-size-xs;
+    height: $icon-size-xs;
+  }
 
   &.--is-success {
     color: var(--color-success-contrast);

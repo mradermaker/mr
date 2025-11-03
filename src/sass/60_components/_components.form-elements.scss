@@ -31,6 +31,8 @@ $form-selected: var(--color-text);
 $form-placeholder: var(--color-text);
 $form-primary: var(--color-text);
 $form-primary-contrast: var(--color-bg);
+$form-valid-color: var(--color-success);
+$form-invalid-color: var(--color-error);
 
 /* Form */
 .c-form {
@@ -54,6 +56,23 @@ $form-primary-contrast: var(--color-bg);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+
+  &__error {
+    color: $form-invalid-color;
+
+    &:not([hidden]) {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  &__error-icon {
+    width: $icon-size-xs;
+    height: $icon-size-xs;
+  }
+
+  &__error-text {}
 }
 
 /* Input */
@@ -85,6 +104,16 @@ $form-primary-contrast: var(--color-bg);
     color: $form-placeholder;
     font-weight: $font-weight-text;
     opacity: 1; // Reset opacity for Firefox
+  }
+
+  &.--success {
+    outline-color: $form-valid-color;
+    border-color: $form-valid-color;
+  }
+
+  &.--error {
+    outline-color: $form-invalid-color;
+    border-color: $form-invalid-color;
   }
 }
 
@@ -132,6 +161,16 @@ $form-primary-contrast: var(--color-bg);
   &.--multiple {
     max-height: $form-height;
   }
+
+  &.--success {
+    outline-color: $form-valid-color;
+    border-color: $form-valid-color;
+  }
+
+  &.--error {
+    outline-color: $form-invalid-color;
+    border-color: $form-invalid-color;
+  }
 }
 
 /* Textarea */
@@ -164,6 +203,16 @@ $form-primary-contrast: var(--color-bg);
     color: $form-placeholder;
     font-weight: $font-weight-text;
     opacity: 1; // Reset opacity for Firefox
+  }
+
+  &.--success {
+    outline-color: $form-valid-color;
+    border-color: $form-valid-color;
+  }
+
+  &.--error {
+    outline-color: $form-invalid-color;
+    border-color: $form-invalid-color;
   }
 }
 
