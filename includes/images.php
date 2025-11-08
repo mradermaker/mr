@@ -90,7 +90,7 @@ if (!function_exists('get_picture')) {
         }
 
         // Fallback <img> (largest version)
-        $html .= '<img loading="' . esc_attr($loading) . '" class="' . esc_attr($imageClass) . '" src="' . esc_url($xxxl) . '"'
+        $html .= '<img decoding="async" loading="' . esc_attr($loading) . '" class="' . esc_attr($imageClass) . '" src="' . esc_url($xxxl) . '"'
             . ($w ? ' width="' . esc_attr($w) . '"' : '')
             . ($h ? ' height="' . esc_attr($h) . '"' : '')
             . ' alt="' . esc_attr($alt) . '">';

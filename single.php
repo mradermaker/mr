@@ -16,7 +16,7 @@ get_header();
         while ( have_posts() ) :
             the_post();
 
-            get_template_part( 'template-parts/content', get_post_type() );
+            get_template_part( 'template-parts/content', 'single' );
 
             // the_post_navigation(
             //     array(
@@ -24,7 +24,7 @@ get_header();
             //         'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'mr' ) . '</span> <span class="nav-title">%title</span>',
             //     )
             // );
-        endwhile; // End of the loop.
+        endwhile;
         ?>
     </main>
 

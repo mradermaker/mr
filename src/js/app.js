@@ -60,6 +60,40 @@
     menuFocusability();
 })();
 
+// Portfolio
+(() => {
+    const buttons = document.querySelectorAll(".c-portfolio__categories .c-button");
+    const grid = document.querySelector(".c-portfolio__cards");
+    const gridItems = grid ? Array.from(grid.querySelectorAll(".c-post-card")) : [];
+    const status = document.querySelector(".c-portfolio__status");
+
+    if (!buttons.length || !gridItems.length) return;
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", function () {
+            buttons.forEach((item) => item.classList.add("--ghost"));
+            button.classList.remove("--ghost");
+
+            buttons.forEach((item) => item.setAttribute("aria-pressed", "false"));
+            button.setAttribute("aria-pressed", "true");
+
+            const selected = button.dataset.category;
+
+            const filteredItems = gridItems.filter((item) => {
+                const categories = item.dataset.category?.split(",") || [];
+                return categories.includes(selected);
+            });
+
+            gridItems.forEach((item) => item.classList.add("--inactive"));
+            filteredItems.forEach((item) => item.classList.remove("--inactive"));
+
+            const visible = selected === "all" ? gridItems.length : filteredItems.length;
+            const label = button.textContent.trim();
+            status.textContent = `${visible} ${visible === 1 ? 'Eintrag' : 'Einträge'} angezeigt${selected === 'all' ? '' : ` für "${label}"`}.`;
+        });
+    });
+})();
+
 // Validation
 (() => {
     const forms = document.querySelectorAll('.c-form');

@@ -15,42 +15,75 @@
 get_header();
 ?>
 
-	<main id="main" class="o-main">
+    <main id="main" class="o-main">
 
-		<?php
-		if ( have_posts() ) :
+        <section class="c-portfolio o-section o-container">
+            <div class="c-portfolio__row o-row --position-center">
+                <div class="c-portfolio__content o-col-12 o-col-xl-8">
+                    <p class="c-portfolio__subheadline c-subheadline">Portfolio</p>
+                    <h1 class="c-portfolio__headline c-headline">Einblicke in meine Projekte.</h1>
+                    <p class="c-portfolio__text c-wysiwyg">Ausgewählte Arbeiten von Design bis Frontend.</p>
+                </div>
+            </div>
+            
+            <?php
+            $args = array(
+                'post_type'      => 'post',
+                'posts_per_page' => -1,
+            );
+            $blog_query = new WP_Query( $args );
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+            if ($blog_query->have_posts() ) :
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+                $categories = get_categories();
+                $default_cat_id = (int) get_option('default_category');
+                $total_posts = (int) $blog_query->found_posts;
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+                if (!empty($categories) && is_array($categories)) {
+                    echo '<ul class="c-portfolio__categories c-button-group --full-width --position-center" role="group" aria-label="Portfolio filtern">';
+                    foreach ($categories as $category) {
+                        $cat_slug = esc_attr( $category->slug ?? '' );
+                        $cat_name = esc_html( $category->name ?? '' );
+                        $is_active = ($category->term_id === $default_cat_id) ? '' : '--ghost';
+                        $is_pressed = ($category->term_id === $default_cat_id) ? 'true' : 'false';
+ 
 
-			endwhile;
+                        if ($cat_slug && $cat_name) {
+                            printf(
+                                '<li class="c-button-group__list-item"><button class="c-button-group__item c-button %1$s" aria-pressed="%2$s" aria-controls="portfolio-grid" data-category="%3$s">%4$s</button></li>',
+                                esc_attr($is_active),
+                                esc_attr($is_pressed),
+                                $cat_slug,
+                                $cat_name
+                            );
+                        }
+                    }
+                    echo '</ul>';
+                }
+                
+                printf(
+                '<p class="c-portfolio__status u-screen-reader-only" aria-live="polite">%s</p>',
+                sprintf(
+                    _n('%s Eintrag angezeigt für "Alle"', '%s Einträge angezeigt für "Alle"', $total_posts, 'dein-textdomain'),
+                    $total_posts
+                )
+                );
+                ?>
+                
+                <div id="portfolio-grid" class="c-portfolio__cards o-row --position-center" role="list">
+                    <?php
+                        while ( $blog_query->have_posts() ) : $blog_query->the_post(); 
+                            get_template_part( 'template-parts/content', get_post_type(), ['role' => 'listitem'] );
+                        endwhile;
+                    ?>
+                </div>
+                <?php
+                wp_reset_postdata();
+            endif;
+            ?>
+        </section>
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+    </main>
 
 <?php
 get_footer();
