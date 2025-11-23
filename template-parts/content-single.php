@@ -20,11 +20,13 @@ $image = get_field('image') ?? [];
 $headline = get_field('headline') ?? null;
 $text = get_field('text') ?? null;
 $technologies = get_field('technology') ?? [];
+$design = get_field('design') ?? [];
 $roles = get_field('role') ?? [];
 $link = get_field('link') ?? [];
+$up_to_date = get_field('up-to-date') ?? true;
 
 $screenshots = [];
-for ($i = 1; $i <= 5; $i++) {
+for ($i = 1; $i <= 10; $i++) {
     $screenshot_field = get_field("screenshot_{$i}") ?? [];
     $screenshot_image = $screenshot_field['image'] ?? [];
 
@@ -35,7 +37,6 @@ for ($i = 1; $i <= 5; $i++) {
         ];
     }
 }
-
 $screens = [];
 $fulls = [];
 foreach ($screenshots as $screenshot) {
@@ -61,7 +62,7 @@ foreach ($screenshots as $screenshot) {
 
     <div class="c-post__container o-container">
         <div class="c-post__row o-row --position-center">
-            <div class="c-post__content o-col-12 o-col-md-7">
+            <div class="c-post__content o-col-12 o-col-xl-7">
                 <?php if (!empty($headline)) { ?>
                     <h1 class="c-post__headline c-headline"><?php echo $headline; ?></h1>
                 <?php } ?>
@@ -80,33 +81,49 @@ foreach ($screenshots as $screenshot) {
                 ?>
             </div>
 
-            <div class="c-post__content o-col-12 o-col-md-5">
+            <div class="c-post__content o-col-12 o-col-xl-5">
                 <?php if (!empty($text)) { ?>
                     <div class="c-post__text c-wysiwyg"><?php echo $text; ?></div>
                 <?php } ?>
                 <div class="c-post__infos">
+                    <?php if (!empty($technologies)) { ?>
                     <dl class="c-post__info">
                         <dt class="c-post__info-label">Technologien</dt>
                         <dd class="c-post__info-value"><?php echo implode( ', ', $technologies ); ?></dd>
                     </dl>
+                    <?php } ?>
+                    <?php if (!empty($design)) { ?>
+                        <dl class="c-post__info">
+                            <dt class="c-post__info-label">Design</dt>
+                            <dd class="c-post__info-value"><?php echo implode( ', ', $design ); ?></dd>
+                        </dl>
+                    <?php } ?>
+                    <?php if (!empty($roles)) { ?>
                     <dl class="c-post__info">
                         <dt class="c-post__info-label">Rolle</dt>
                         <dd class="c-post__info-value"><?php echo implode( ', ', $roles ); ?></dd>
                     </dl>
+                    <?php } ?>
                 </div>
                 <?php if (!empty($link['url'])) { ?>
-                    <a class="c-post__link c-button" href="<?php echo esc_url($link['url']); ?>" target="_blank" rel="noopener noreferrer">Link zum Projekt</a>
+                    <a class="c-post__link c-button" href="<?php echo esc_url($link['url']); ?>" target="_blank" rel="noopener noreferrer"><?php if (!empty($link['title'])) { echo $link['title']; } else { echo 'Link zum Projekt'; } ?></a>
+                <?php } ?>
+
+                <?php if (!$up_to_date) { ?>
+                    <p class="c-post__disclaimer"><?php get_icon('info', true, ['class' => 'c-post__disclaimer-icon']); ?> <small class="c-post__disclaimer-text">Live-Version kann vom ursprünglichen Stand abweichen.</small></p>
                 <?php } ?>
             </div>
         </div>
 
         <?php if (!empty($screenshots)) { ?>
-            <div class="c-post__visuals o-row --position-center">
+            <div class="c-post__visuals o-row">
                 <?php while (!empty($screens) || !empty($fulls)) {
-                    if (!empty($screens)) {
-                        $screenshot = array_shift($screens);
+
+                    for ($i = 0; $i < 2; $i++) {
+                        if (empty($fulls)) break;
+                        $screenshot = array_shift($fulls);
                         ?>
-                        <div class="c-post__visual-wrapper --screen o-col-12">
+                        <div class="c-post__visual-wrapper --full o-col-12 o-col-md-6">
                             <div class="c-post__visual">
                                 <?php
                                 get_picture($screenshot['image'], [
@@ -116,13 +133,12 @@ foreach ($screenshots as $screenshot) {
                                 ?>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php }
 
-                    <?php for ($i = 0; $i < 2; $i++) {
-                        if (empty($fulls)) break;
-                        $screenshot = array_shift($fulls);
+                    if (!empty($screens)) {
+                        $screenshot = array_shift($screens);
                         ?>
-                        <div class="c-post__visual-wrapper --full o-col-12 o-col-md-6">
+                        <div class="c-post__visual-wrapper --screen o-col-12">
                             <div class="c-post__visual">
                                 <?php
                                 get_picture($screenshot['image'], [

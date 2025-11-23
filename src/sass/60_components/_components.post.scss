@@ -22,7 +22,6 @@
     display: flex;
     
     .--screen & {
-      // border: 2px solid var(--color-text);
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
       border-radius: 0.25rem;
       overflow: hidden;
@@ -43,16 +42,22 @@
   &__container {
     display: flex;
     flex-direction: column;
-    padding-block: 3rem $mobile-section-padding;
-    gap: 3rem;
+    padding-block: $mobile-row-padding $mobile-section-padding;
+    gap: $mobile-row-padding;
 
     @include media-breakpoint-up(xl) {
-      padding-block: 6rem $desktop-section-padding;
-      gap: 6rem;
+      padding-block: $desktop-row-padding $desktop-section-padding;
+      gap: $desktop-row-padding;
     }
   }
 
-  &__row {}
+  &__row {
+    gap: 1rem 0;
+
+    @include media-breakpoint-up(xl) {
+      gap: 0;
+    }
+  }
 
   &__content {
     display: flex;
@@ -94,23 +99,59 @@
 
   &__link {}
 
+  &__disclaimer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: color-mix(in srgb, var(--color-text) 66.6666%, var(--color-bg) 33.3333%);
+  }
+
+  &__disclaimer-icon {
+    width: $icon-size-xs;
+    height: $icon-size-xs;
+  }
+
+  &__disclaimer-text {
+    @include font-size($small-font-size, $small-line-height);
+  }
+
   &__visuals {
     display: flex;
     flex-direction: column;
     gap: 2rem 0;
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(md) {
       flex-direction: row;
+      gap: 2rem 0;
+    }
+
+    @include media-breakpoint-up(xl) {
       gap: 4rem 0;
     }
   }
 
   &__visual-wrapper {
-    &.--screen {}
+    &.--screen {
+      &:nth-child(2n+1 of #{&}) {
+        #{$c-post}__visual {
+          background: color-mix(in srgb, var(--color-bg) 66.6666%, var(--color-image-bg) 33.3333%);
+        }
+      }
+      &:nth-child(2n+2 of #{&}) {
+        #{$c-post}__visual {
+          background: color-mix(in srgb, var(--color-project) 33.3333%, var(--color-bg) 66.6666%);
+        }
+      }
+      &:nth-child(2n+3 of #{&}) {
+        #{$c-post}__visual {
+          background: var(--color-image-bg);
+        }
+      }
+    }
 
     &.--full {
-      &:nth-child(4n+3 of #{&}),
-      &:nth-child(4n+4 of #{&}) {
+      &:nth-child(4n+1 of #{&}),
+      &:nth-child(4n+2 of #{&}) {
         #{$c-post}__visual {
           background: var(--color-image-bg);
         }
@@ -123,28 +164,39 @@
     align-items: center;
     justify-content: center;
     background: color-mix(in srgb, var(--color-project) 50%, var(--color-image-bg) 50%);
-    padding: 2rem;
-    aspect-ratio: 1 / 1;
 
-    .--screen & {}
+    .--screen & {
+      aspect-ratio: 16 / 9;
+      padding: 2rem;
+      @include media-breakpoint-up(xl) {
+        padding: 6rem 12rem;
+      }
+    }
 
-    .--full & {}
+    .--full & {
+      aspect-ratio: 2 / 3;
+      padding: 2rem;
+      @include media-breakpoint-up(xl) {
+        aspect-ratio: 3 / 4;
+      }
+    }
   }
 
   &__visual-picture {
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 0.125rem;
     overflow: hidden;
     display: flex;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
     .--screen & {
       width: 100%;
       height: auto;
+      border-radius: 0.25rem;
     }
 
     .--full & {
       width: auto;
       height: 100%;
+      border-radius: 0.125rem;
     }
   }
 
@@ -160,12 +212,3 @@
     .--full & {}
   }
 }
-
-
-// .c-post__visuals .c-post__visual-wrapper.--full:nth-of-type(2 of .c-post__visual-wrapper.--full) {
-//   background: red;
-// }
-
-// .c-post__visual-wrapper.--full:nth-child(2 of .c-post__visual-wrapper.--full) {
-//   background: blue;
-// }
