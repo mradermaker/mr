@@ -89,7 +89,7 @@
 
             const visible = selected === "all" ? gridItems.length : filteredItems.length;
             const label = button.textContent.trim();
-            status.textContent = `${visible} ${visible === 1 ? 'Eintrag' : 'Einträge'} angezeigt${selected === 'all' ? '' : ` für "${label}"`}.`;
+            status.textContent = `${visible} ${visible === 1 ? 'Eintrag' : 'Einträge'} angezeigt${selected === 'all' ? '' : ` für die Kategorie "${label}"`}.`;
         });
     });
 })();

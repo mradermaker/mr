@@ -1,0 +1,56 @@
+.c-hero {
+  padding-top: $mobile-section-padding;
+
+  @include media-breakpoint-up(xl) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 70dvh;
+    padding-block: $desktop-section-padding;
+  }
+
+  &__container {}
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-row-padding 2rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @include media-breakpoint-up(xl) {
+      gap: 2rem;
+    }
+  }
+
+  &__headline {}
+
+  &__text {}
+
+  &__button-group {}
+
+  &__button-wrapper {}
+
+  &__button {}
+
+  &__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    display: flex;
+
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      aspect-ratio: inherit;
+    }
+  }
+}

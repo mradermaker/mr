@@ -1,6 +1,7 @@
 .c-categories {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  @include font-size($small-font-size, $small-line-height);
 
   &__category {
     background: var(--color-image-bg);

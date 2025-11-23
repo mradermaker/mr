@@ -30,6 +30,7 @@ get_header();
             $args = array(
                 'post_type'      => 'post',
                 'posts_per_page' => -1,
+                'tag__not_in' => array(8),
             );
             $blog_query = new WP_Query( $args );
 
@@ -38,41 +39,43 @@ get_header();
                 $categories = get_categories();
                 $default_cat_id = (int) get_option('default_category');
                 $total_posts = (int) $blog_query->found_posts;
-
-                if (!empty($categories) && is_array($categories)) {
-                    echo '<ul class="c-portfolio__categories c-button-group --full-width --position-center" role="group" aria-label="Portfolio filtern">';
-                    foreach ($categories as $category) {
-                        $cat_slug = esc_attr( $category->slug ?? '' );
-                        $cat_name = esc_html( $category->name ?? '' );
-                        $is_active = ($category->term_id === $default_cat_id) ? '' : '--ghost';
-                        $is_pressed = ($category->term_id === $default_cat_id) ? 'true' : 'false';
- 
-
-                        if ($cat_slug && $cat_name) {
-                            printf(
-                                '<li class="c-button-group__list-item"><button class="c-button-group__item c-button %1$s" aria-pressed="%2$s" aria-controls="portfolio-grid" data-category="%3$s">%4$s</button></li>',
-                                esc_attr($is_active),
-                                esc_attr($is_pressed),
-                                $cat_slug,
-                                $cat_name
-                            );
-                        }
-                    }
-                    echo '</ul>';
-                }
-                
-                printf(
-                '<p class="c-portfolio__status u-screen-reader-only" aria-live="polite">%s</p>',
-                sprintf(
-                    _n('%s Eintrag angezeigt für "Alle"', '%s Einträge angezeigt für "Alle"', $total_posts, 'dein-textdomain'),
-                    $total_posts
-                )
-                );
                 ?>
+
+                <div class="c-portfolio__navigation">
+                    <?php if (!empty($categories) && is_array($categories)) { ?>
+                        <ul class="c-portfolio__categories c-button-group --full-width --position-center" role="group" aria-label="Portfolio filtern">
+                            <?php foreach ($categories as $category) {
+                                $cat_slug = esc_attr( $category->slug ?? '' );
+                                $cat_name = esc_html( $category->name ?? '' );
+                                $is_active = ($category->term_id === $default_cat_id) ? '' : '--ghost';
+                                $is_pressed = ($category->term_id === $default_cat_id) ? 'true' : 'false';
+        
+
+                                if ($cat_slug && $cat_name) {
+                                    printf(
+                                        '<li class="c-button-group__list-item"><button class="c-button-group__item c-button %1$s" aria-pressed="%2$s" aria-controls="portfolio-grid" data-category="%3$s">%4$s</button></li>',
+                                        esc_attr($is_active),
+                                        esc_attr($is_pressed),
+                                        $cat_slug,
+                                        $cat_name
+                                    );
+                                }
+                            } ?>
+                        </ul>
+                    <?php } ?>
+                    
+                    <?php printf(
+                    '<p class="c-portfolio__status u-screen-reader-only" aria-live="polite">%s</p>',
+                    sprintf(
+                        _n('%s Eintrag angezeigt', '%s Einträge angezeigt', $total_posts),
+                        $total_posts
+                    )
+                    );?>
+                </div>
                 
                 <div id="portfolio-grid" class="c-portfolio__cards o-row --position-center" role="list">
                     <?php
-                        while ( $blog_query->have_posts() ) : $blog_query->the_post(); 
+                        while ( $blog_query->have_posts() ) : $blog_query->the_post();
                             get_template_part( 'template-parts/content', get_post_type(), ['role' => 'listitem'] );
                         endwhile;
                     ?>

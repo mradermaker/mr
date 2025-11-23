@@ -1,0 +1,62 @@
+.c-skill-teaser-card {
+  $c-skill-teaser-card: &;
+
+  --icon-column: 4rem;
+  --column-gap: 1rem;
+  --row-gap: 0.5rem;
+  --card-gap: 2rem;
+
+  display: grid;
+  grid-template-columns: var(--icon-column) 1fr;
+  gap: var(--row-gap) var(--column-gap);
+
+  @include media-breakpoint-up(xl) {
+    --icon-column: 6rem;
+    --column-gap: 2rem;
+    --row-gap: 1rem;
+    --card-gap: 4rem;
+  }
+
+  &__header {
+    grid-column: 1 / -1;
+    display: contents;
+  }
+
+  &__icon {
+    grid-column: 1;
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+    align-self: center;
+    justify-self: center;
+
+    @include media-breakpoint-up(xl) {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+
+  &__headline {
+    grid-column: 2;
+    align-self: center;
+  }
+
+  &__content {
+    grid-column: 2;
+    position: relative;
+  }
+
+  &:not(:last-child) {
+    #{$c-skill-teaser-card}__content {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: calc(-1px - ((var(--icon-column) / 2) + var(--column-gap)));
+        top: 0;
+        width: 2px;
+        height: calc(100% + var(--card-gap) - var(--row-gap));
+        background-color: var(--color-text);
+      }
+    }
+  }
+}
