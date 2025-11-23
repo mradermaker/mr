@@ -8,20 +8,20 @@ get_header();
 
 <main id="main" class="o-main">
 
-    <section class="o-section">
-        <div class="o-container">
-            <div class="o-row --position-center c-profile">
-                <figure class="c-profile__image c-figure o-col-6 o-col-xl-2 u-position-relative">
-                    <div class="c-figure__placeholder --circle" aria-hidden="true"></div>
-                    <figcaption class="c-figure__caption c-handwritten">
-                        <?php get_icon('handwritten-arrow-down', true, ['class' => 'c-handwritten__icon --arrow-down',]); ?>
-                        <span class="c-handwritten__text">Portraitfoto, lächelnd <span class="u-screen-reader-only">(Platzhalter)</span></span>
-                    </figcaption>
-                </figure>
-                <div class="c-profile__content o-col-12 o-col-xl-6">
-                    <h1 class="c-profile__headline c-headline">Hallo! Ich bin Monika, Frontend Developer & Webdesignerin.</h1>
-                    <p class="c-profile__text c-text">Einige meiner Projekte sind aus Datenschutzgründen geschützt. Das Passwort erhalten Sie auf Anfrage oder direkt aus meiner Bewerbung.</p>
+    <section class="c-profile o-section o-container">
+        <div class="c-profile__row o-row --position-center">
+            <figure class="c-profile__image c-figure --circle o-col-6 o-col-xl-2 u-position-relative">
+                <div class="c-figure__placeholder" aria-hidden="true">
+                    <?php get_icon('placeholder', true, ['class' => 'c-figure__icon --image',]); ?>
                 </div>
+                <figcaption class="c-figure__caption c-handwritten --profile">
+                    <?php get_icon('handwritten-arrow-down', true, ['class' => 'c-handwritten__icon',]); ?>
+                    <span class="c-handwritten__text">Portraitfoto, lächelnd <span class="u-screen-reader-only">(Platzhalter)</span></span>
+                </figcaption>
+            </figure>
+            <div class="c-profile__content o-col-12 o-col-xl-6">
+                <h1 class="c-profile__headline c-headline">Hallo! Ich bin Monika, Frontend Developer & Designerin.</h1>
+                <p class="c-profile__text c-wysiwyg">Einige meiner Projekte sind aus Datenschutzgründen geschützt. Das Passwort erhalten Sie auf Anfrage oder aus meiner Bewerbung.</p>
             </div>
         </div>
     </section>
@@ -50,10 +50,15 @@ get_header();
                 <?php if (is_user_logged_in()) { ?>
                     <?php
                     $current_user = wp_get_current_user();
-                    $logout_url   = wp_logout_url(get_permalink(MR_LOGIN_PAGE_ID));
+                    $user_id = get_current_user_id();
+                    $username = $current_user->user_login ?? null;
+                    $first_name = $current_user->user_firstname ?? null;
+                    $last_name = $current_user->user_lastname ?? null;
+                    $company = get_field('company', 'user_' . $user_id) ?? null;
+                    $logout_url   = wp_logout_url(get_permalink(MR_LOGIN_ID));
                     ?>
-                    <div class="c-login__logged-in c-text">
-                        <h2>Hallo <?php echo esc_html($current_user->display_name); ?>!</h2>
+                    <div class="c-login__logged-in c-wysiwyg">
+                        <h2>Hallo <?php echo esc_html(!empty($first_name) && !empty($last_name) ? $first_name . ' ' . $last_name : (!empty($company) ? $company : $username)); ?>!</h2>
                         <p>Du bist angemeldet und siehst vertrauliche Arbeitsproben. Bitte nicht weiterleiten oder öffentlich teilen.</p>
                     </div>
                     <div class="c-login__button-group c-button-group">
@@ -64,26 +69,26 @@ get_header();
                     <form class="c-login__form c-form" name="loginform" id="loginform" action="<?php echo esc_url(wp_login_url()); ?>" method="post" novalidate>
                         <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/')); ?>" />
 
-                    <div class="c-input-group">
-                        <label for="user_login" class="c-input-group__label c-label">Benutzername oder E-Mail <span class="c-label__required">* (Pflichtfeld)</span></label>
+                        <div class="c-input-group">
+                            <label for="user_login" class="c-input-group__label c-label">Benutzername oder E-Mail <span class="c-label__required">* (Pflichtfeld)</span></label>
                             <input type="text" name="log" id="user_login" class="c-input-group__field c-input" autocapitalize="off" autocomplete="username" required="required" aria-describedby="username-error" />
                             <div id="username-error" class="c-input-group__error" hidden>
                                 <?php get_icon('error', true, ['class' => 'c-input-group__error-icon']); ?>
                                 <span class="c-input-group__error-text">Bitte gib deinen Benutzernamen oder deine E-Mail Adresse ein.</span>
                             </div>
-                    </div>
+                        </div>
 
-                    <div class="c-input-group">
-                        <label for="user_password" class="c-input-group__label c-label">Passwort <span class="c-label__required">* (Pflichtfeld)</span></label>
+                        <div class="c-input-group">
+                            <label for="user_pass" class="c-input-group__label c-label">Passwort <span class="c-label__required">* (Pflichtfeld)</span></label>
                             <input type="password" name="pwd" id="user_pass" class="c-input-group__field c-input" autocomplete="current-password" spellcheck="false" required="required" aria-describedby="password-error" />
                             <div id="password-error" class="c-input-group__error" hidden>
                                 <?php get_icon('error', true, ['class' => 'c-input-group__error-icon']); ?>
                                 <span class="c-input-group__error-text">Bitte gib dein Passwort ein.</span>
                             </div>
-                    </div>
+                        </div>
 
-                    <input type="submit" name="wp-submit" class="c-button" value="Anmelden" />
-                </form>
+                        <input type="submit" name="wp-submit" class="c-button" value="Anmelden" />
+                    </form>
 
                     <a class="c-button --link" href="mailto:<?php echo antispambot('hallo@monika-radermaker.de'); ?>?subject=Zugang%20anfragen">Zugang anfragen</a>
                 <?php } ?>
