@@ -12,41 +12,27 @@ get_header();
 
 	<main id="main" class="o-main">
 
-		<?php if ( have_posts() ) : ?>
+		<section class="c-search o-section o-container">
+			<div class="c-search__row o-row">
+				<div class="c-search__content o-col-12 o-col-xl-8">
+					<h1 class="c-search__headline c-headline">Suchergebnisse für: <?php echo esc_html(get_search_query());?></h1>
+				</div>
+			</div>
+           
+			<div class="c-search__results">
+				<?php
+				while ( have_posts() ) :
+					the_post();
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'mr' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+					get_template_part( 'template-parts/content', 'search' );
+				endwhile;
+				?>
+			</div>
+		
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+		</section>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+	</main>
 
 <?php
 get_footer();

@@ -55,7 +55,7 @@ $text = get_field('text') ?? null;
             foreach ($cat_names_filtered as $category) {
                 
                     printf(
-                        '<li class="c-categories__category c-categories">%1$s</li>',
+                        '<li class="c-categories__category">%1$s</li>',
                         $category
                     );
             }

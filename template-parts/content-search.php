@@ -7,29 +7,14 @@
  * @package mr
  */
 
+$post_id = get_the_ID() ?? null;
+$post_link = esc_url(get_permalink($post_id)) ?? null;
+$post_title = get_the_title() ?? null;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			mr_posted_on();
-			mr_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php mr_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php mr_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+<article class="c-search-card">
+    <?php if (!empty($post_link)) { ?>
+		<h2 class="c-search-card__title"><a class="c-search-card__link" href="<?php echo $post_link; ?>"><?php echo esc_html($post_title); ?></a></h2>
+		<p class="c-search-card__type c-categories"><span class="c-categories__category"><?php echo get_post_type_object( get_post_type() )->labels->singular_name; ?></span></p>
+	<?php } ?>
+</article>

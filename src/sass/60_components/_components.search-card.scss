@@ -1,0 +1,10 @@
+.c-search-card {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__title {}
+    &__link {}
+    &__type {}
+}
