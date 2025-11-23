@@ -1,4 +1,21 @@
 .c-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include media-breakpoint-up(xl) {
+    gap: 4rem;
+  }
+
+  &__row {
+    display: flex;
+    gap: 2rem 0;
+
+    @include media-breakpoint-up(xl) {
+      gap: 0;
+    }
+  }
+  
   &__image {}
 
   &__content {
@@ -10,4 +27,6 @@
   &__headline {}
 
   &__text {}
+
+  &__links {}
 }

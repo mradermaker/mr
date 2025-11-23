@@ -1,12 +1,4 @@
 .c-headline {
-  font-family: $font-family-headline;
-  font-weight: $font-weight-headline;
-  hyphens: auto;
-  text-wrap-style: balance;
-  @include media-breakpoint-up(sm) {
-    hyphens: manual;
-  }
-
   &.--h1 {
     @include font-size($mobile-h1-font-size, $mobile-h1-line-height);
     @include media-breakpoint-up(xl) {

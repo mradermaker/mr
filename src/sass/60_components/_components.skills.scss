@@ -1,0 +1,36 @@
+.c-skills {
+  display: flex;
+  flex-direction: column;
+  gap: $mobile-row-padding 2rem;
+
+  @include media-breakpoint-up(md) {
+    gap: $desktop-row-padding;
+  }
+
+  &__row {}
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @include media-breakpoint-up(xl) {
+      gap: 2rem;
+    }
+  }
+
+  &__subheadline {}
+
+  &__headline {}
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-row-padding;
+
+    @include media-breakpoint-up(md) {
+      gap: $desktop-row-padding;
+    }
+  }
+}

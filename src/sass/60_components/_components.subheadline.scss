@@ -2,4 +2,8 @@
   font-family: $font-family-text-bold;
   font-weight: $font-weight-text-bold;
   @include font-size($small-font-size, $small-line-height);
+
+  @include media-breakpoint-up(xl) {
+    margin-bottom: -0.5rem;
+  }
 }
