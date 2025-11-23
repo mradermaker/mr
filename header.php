@@ -9,7 +9,10 @@
  * @package mr
  */
 
+$hide_header_pages = array(MR_IMPRINT_ID, MR_DATA_PROTECTION_ID);
+$hide_header = is_page(MR_LOGIN_ID) || ( is_page($hide_header_pages) && !is_user_logged_in() );
 ?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
@@ -26,7 +29,7 @@
 	<a class="c-skip-link u-screen-reader-only" href="#main">Zum Inhalt wechseln</a>
     <a class="c-skip-link u-screen-reader-only" href="#footer">Zum Footer wechseln</a>
 
-	<?php if (!is_page_template( 'page-login.php' ) ) { ?>
+	<?php if (!$hide_header) { ?>
 		<header class="c-header">
 			<div class="c-header__container o-container">
             	<div class="c-header__row o-row">

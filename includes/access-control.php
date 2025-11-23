@@ -8,9 +8,9 @@
 /**
  * Config (page IDs & paths) 
  */
-if (!defined('MR_LOGIN_PAGE_ID'))   define('MR_LOGIN_PAGE_ID', 14);
-if (!defined('MR_IMPRESSUM_ID'))    define('MR_IMPRESSUM_ID', 19);
-if (!defined('MR_DATENSCHUTZ_ID'))  define('MR_DATENSCHUTZ_ID', 3);
+if (!defined('MR_LOGIN_ID'))   define('MR_LOGIN_ID', 14);
+if (!defined('MR_IMPRINT_ID'))    define('MR_IMPRINT_ID', 19);
+if (!defined('MR_DATA_PROTECTION_ID'))  define('MR_DATA_PROTECTION_ID', 3);
 
 /**
  * Check if current user has the "portfolio" role.
@@ -39,10 +39,10 @@ if (!function_exists('mr_protect_all_pages')) {
         // 	return;
         // }
 
-        $allowed_pages = array(MR_LOGIN_PAGE_ID, MR_IMPRESSUM_ID, MR_DATENSCHUTZ_ID);
+        $allowed_pages = array(MR_LOGIN_ID, MR_IMPRINT_ID, MR_DATA_PROTECTION_ID);
 
         if (!is_page($allowed_pages)) {
-            $target = get_permalink(MR_LOGIN_PAGE_ID);
+            $target = get_permalink(MR_LOGIN_ID);
 
             // Fallback if login page doesn't exist
             if (!$target) {
@@ -69,7 +69,7 @@ if (!function_exists('mr_block_admin_for_portfolio')) {
 		// Block only "portfolio" users (allow AJAX)
 		if (mr_is_portfolio_user() && !(defined('DOING_AJAX') && DOING_AJAX)) {
 			wp_safe_redirect(
-				add_query_arg('noaccess', 'admin', get_permalink(MR_LOGIN_PAGE_ID))
+				add_query_arg('noaccess', 'admin', get_permalink(MR_LOGIN_ID))
 			);
 			exit;
 		}
@@ -109,7 +109,7 @@ if (!function_exists('mr_login_redirect')) {
 if (!function_exists('mr_logout_redirect')) {
 	function mr_logout_redirect( $redirect_to, $requested_redirect_to, $user ) {
 		// return home_url('/login');
-        return add_query_arg( 'loggedout', 'true', get_permalink(MR_LOGIN_PAGE_ID) );
+        return add_query_arg( 'loggedout', 'true', get_permalink(MR_LOGIN_ID) );
 	}
 	add_filter('logout_redirect', 'mr_logout_redirect', 10, 3);
 }
@@ -122,7 +122,7 @@ if (!function_exists( 'mr_redirect_on_failed_login')) :
         if (!empty( $_REQUEST['redirect_to'] ) ) {
             $args['redirect_to'] = esc_url_raw( $_REQUEST['redirect_to'] );
         }
-        wp_safe_redirect( add_query_arg( $args, get_permalink(MR_LOGIN_PAGE_ID) ) );
+        wp_safe_redirect( add_query_arg( $args, get_permalink(MR_LOGIN_ID) ) );
         exit;
     }
     add_action('wp_login_failed', 'mr_redirect_on_failed_login');
@@ -132,7 +132,7 @@ endif;
 if (!function_exists( 'mr_redirect_on_empty_login')) :
     function mr_redirect_on_empty_login( $user, $username, $password ) {
         if (isset( $_POST['log'], $_POST['pwd'] ) && ( $username === '' || $password === '')) {
-            wp_safe_redirect( add_query_arg( 'login', 'empty', get_permalink(MR_LOGIN_PAGE_ID) ) );
+            wp_safe_redirect( add_query_arg( 'login', 'empty', get_permalink(MR_LOGIN_ID) ) );
             exit;
         }
         return $user;
