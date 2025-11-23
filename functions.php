@@ -177,33 +177,6 @@ require_once get_template_directory() . '/includes/images.php';
 require_once get_template_directory() . '/includes/login-messages.php';
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/includes/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/includes/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-// require get_template_directory() . '/includes/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/includes/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-// if ( defined( 'JETPACK__VERSION' ) ) {
-// 	require get_template_directory() . '/includes/jetpack.php';
-// }
-
-/**
  * Remove Text Editor
  */
 function remove_editor_from_pages() {
