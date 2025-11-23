@@ -1,1 +1,31 @@
-.c-skip-link {}
+.c-skip-link {
+  display: inline-block;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  font-family: $font-family-button;
+  font-weight: $font-weight-button;
+  @include font-size($small-font-size, $small-line-height);
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 2rem;
+  color: var(--color-bg);
+  background: var(--color-text);
+  border: 2px solid var(--color-text);
+  border-radius: 0.125rem;
+  text-decoration: none;
+  outline: $outline;
+  outline-offset: $outline-offset;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, text-decoration 0.25s ease-in-out, outline-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  cursor: pointer;
+
+  @include focus-visible() {
+    color: var(--color-bg);
+    background: var(--color-text);
+    border-color: var(--color-text);
+    outline-color: var(--color-text);
+    padding: 0.5rem 2rem;
+  }
+}

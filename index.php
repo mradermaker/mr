@@ -43,7 +43,7 @@ get_header();
 
                 <div class="c-portfolio__navigation">
                     <?php if (!empty($categories) && is_array($categories)) { ?>
-                        <ul class="c-portfolio__categories c-button-group --full-width --position-center" role="group" aria-label="Portfolio filtern">
+                        <ul class="c-portfolio__categories c-button-group --full-width --position-center" aria-label="Portfolio filtern">
                             <?php foreach ($categories as $category) {
                                 $cat_slug = esc_attr( $category->slug ?? '' );
                                 $cat_name = esc_html( $category->name ?? '' );

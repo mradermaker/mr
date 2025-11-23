@@ -24,10 +24,13 @@ $hide_header = is_page(MR_LOGIN_ID) || ( is_page($hide_header_pages) && !is_user
 </head>
 
 <body <?php body_class('o-body'); ?>>
-	<?php wp_body_open(); ?>
-    <a class="c-skip-link u-screen-reader-only" href="#menu-haupt">Zum Navigation wechseln</a>
-	<a class="c-skip-link u-screen-reader-only" href="#main">Zum Inhalt wechseln</a>
-    <a class="c-skip-link u-screen-reader-only" href="#footer">Zum Footer wechseln</a>
+    <?php if (!$hide_header) { ?>
+        <a class="c-skip-link u-screen-reader-only" href="#menu-haupt">Zur Navigation</a>
+    <?php } ?>
+	<a class="c-skip-link u-screen-reader-only" href="#main">Zum Inhalt</a>
+    <a class="c-skip-link u-screen-reader-only" href="#footer">Zum Footer</a>
+
+    <?php wp_body_open(); ?>
 
 	<?php if (!$hide_header) { ?>
 		<header class="c-header">
@@ -56,7 +59,7 @@ $hide_header = is_page(MR_LOGIN_ID) || ( is_page($hide_header_pages) && !is_user
                                 'after'				=> '',
                                 'link_before'		=> '',
                                 'link_after'		=> '',
-                                'items_wrap'		=>'<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
+                                'items_wrap'		=>'<ul id="%1$s" class="%2$s">%3$s</ul>',
                                 'walker'			=> '',
                             ]); ?>
                         </nav>

@@ -27,9 +27,9 @@ $headline = get_field('headline') ?? null;
 $text = get_field('text') ?? null;
 ?>
 
-<article class="c-post-card o-col-12 o-col-md-6" data-category="<?php echo implode( ',', $cat_names_lower ); ?>" <?php echo $role ? 'role="' . esc_attr($role) . '"' : ''; ?>>
+<article class="c-post-card o-col-12 o-col-md-6" data-category="<?php echo implode( ',', $cat_names_lower ); ?>" <?php echo $role ? 'role="' . esc_attr($role) . '"' : ''; ?> style="--color-project: <?php echo $color; ?>;">
     <?php if (!empty($post_link)) { ?>
-        <a class="c-post-card__image-wrapper" href="<?php echo $post_link; ?>" style="--color-project: <?php echo $color; ?>;">
+            <a class="c-post-card__image-wrapper" href="<?php echo $post_link; ?>" aria-label="Zur Detailansicht von <?php echo $headline; ?>">
     <?php } ?>
         <?php if (!empty($image['image']['url'])) { ?>
             <?php
@@ -62,6 +62,7 @@ $text = get_field('text') ?? null;
             echo '</ul>';
         }
         ?>
-        <?php if (!empty($post_link)) { ?><a class="c-post-card__link" href="<?php echo $post_link; ?>">Projekt ansehen</a><?php } ?>
+            <?php if (!empty($post_link)) { ?><a class="c-post-card__link" href="<?php echo $post_link; ?>" aria-label="Projekt ansehen von <?php echo $headline; ?>">Projekt ansehen</a><?php } ?>
+        </div>
     </div>
 </article>
