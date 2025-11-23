@@ -46,6 +46,8 @@ if (!function_exists('get_icon')) {
             'learning' => 'sparkles',
             'github' => 'github',
             'codepen' => 'codepen',
+            'linkedin' => 'linkedin',
+            'xing' => 'xing',
             default => null,
         };
 
