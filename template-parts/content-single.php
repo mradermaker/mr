@@ -25,11 +25,16 @@ $roles = get_field('role') ?? [];
 $link = get_field('link') ?? [];
 $up_to_date = get_field('up-to-date') ?? true;
 
+$mockups = get_field('mockup');
+$mockup_mobile = $mockups['mobile'];
+$mockup_tablet = $mockups['tablet'];
+$mockup_desktop = $mockups['desktop'];
+
 $screenshots = [];
 for ($i = 1; $i <= 10; $i++) {
     $screenshot_field = get_field("screenshot_{$i}") ?? [];
     $screenshot_image = $screenshot_field['image'] ?? [];
-
+    
     if (!empty($screenshot_image['url'])) {
         $screenshots["screenshot_{$i}"] = [
             'image' => $screenshot_image,
@@ -87,10 +92,10 @@ foreach ($screenshots as $screenshot) {
                 <?php } ?>
                 <div class="c-post__infos">
                     <?php if (!empty($technologies)) { ?>
-                    <dl class="c-post__info">
-                        <dt class="c-post__info-label">Technologien</dt>
-                        <dd class="c-post__info-value"><?php echo implode( ', ', $technologies ); ?></dd>
-                    </dl>
+                        <dl class="c-post__info">
+                            <dt class="c-post__info-label">Technologien</dt>
+                            <dd class="c-post__info-value"><?php echo implode( ', ', $technologies ); ?></dd>
+                        </dl>
                     <?php } ?>
                     <?php if (!empty($design)) { ?>
                         <dl class="c-post__info">
@@ -99,10 +104,10 @@ foreach ($screenshots as $screenshot) {
                         </dl>
                     <?php } ?>
                     <?php if (!empty($roles)) { ?>
-                    <dl class="c-post__info">
-                        <dt class="c-post__info-label">Rolle</dt>
-                        <dd class="c-post__info-value"><?php echo implode( ', ', $roles ); ?></dd>
-                    </dl>
+                        <dl class="c-post__info">
+                            <dt class="c-post__info-label">Rolle</dt>
+                            <dd class="c-post__info-value"><?php echo implode( ', ', $roles ); ?></dd>
+                        </dl>
                     <?php } ?>
                 </div>
                 <?php if (!empty($link['url'])) { ?>
@@ -115,10 +120,9 @@ foreach ($screenshots as $screenshot) {
             </div>
         </div>
 
-        <?php if (!empty($screenshots)) { ?>
+        <?php if (!empty($screenshots) || !empty($mockup_mobile['url']) || !empty($mockup_tablet['url']) || !empty($mockup_desktop['url'])) { ?>
             <div class="c-post__visuals o-row">
                 <?php while (!empty($screens) || !empty($fulls)) {
-
                     for ($i = 0; $i < 2; $i++) {
                         if (empty($fulls)) break;
                         $screenshot = array_shift($fulls);
@@ -149,6 +153,43 @@ foreach ($screenshots as $screenshot) {
                             </div>
                         </div>
                     <?php } ?>
+                <?php } ?>
+
+                <?php if (!empty($mockup_mobile['url']) || !empty($mockup_tablet['url']) || !empty($mockup_desktop['url'])) { ?>
+                    <div class="c-post__mockups-wrapper o-col-12">
+                        <div class="c-post__mockups">
+                            <?php if (!empty($mockup_desktop['url'])) { ?>
+                                <div class="c-post__mockup --desktop">
+                                    <?php
+                                    get_picture($mockup_desktop, [
+                                        'additionalPictureClass' => 'c-post__mockup-picture',
+                                        'additionalImageClass'   => 'c-post__mockup-image'
+                                    ]);
+                                    ?>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($mockup_mobile['url'])) { ?>
+                                <div class="c-post__mockup --mobile">
+                                    <?php
+                                    get_picture($mockup_mobile, [
+                                        'additionalPictureClass' => 'c-post__mockup-picture',
+                                        'additionalImageClass'   => 'c-post__mockup-image'
+                                    ]);
+                                    ?>
+                                </div>
+                            <?php } ?>
+                            <?php if (!empty($mockup_tablet['url'])) { ?>
+                                <div class="c-post__mockup --tablet">
+                                    <?php
+                                    get_picture($mockup_tablet, [
+                                        'additionalPictureClass' => 'c-post__mockup-picture',
+                                        'additionalImageClass'   => 'c-post__mockup-image'
+                                    ]);
+                                    ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
                 <?php } ?>
             </div>
         <?php } ?>
