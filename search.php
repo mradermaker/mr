@@ -19,12 +19,12 @@ get_header();
 				</div>
 			</div>
            
-			<div class="c-search__results">
+			<div class="c-search__results" role="list">
 				<?php
 				while ( have_posts() ) :
 					the_post();
 
-					get_template_part( 'template-parts/content', 'search' );
+					get_template_part( 'template-parts/content', 'search', ['role' => 'listitem'] );
 				endwhile;
 				?>
 			</div>
