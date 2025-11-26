@@ -109,6 +109,10 @@
   &__disclaimer-icon {
     width: $icon-size-xs;
     height: $icon-size-xs;
+    align-self: baseline;
+    position: relative;
+    top: 0.25rem;
+    stroke-width: 1;
   }
 
   &__disclaimer-text {
