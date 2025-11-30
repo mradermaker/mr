@@ -126,7 +126,7 @@
             "default_value": "",
             "allow_in_bindings": 0,
             "tabs": "all",
-            "toolbar": "basic",
+            "toolbar": "full",
             "media_upload": 0,
             "delay": 0
         },
@@ -152,11 +152,11 @@
             "delay": 0
         },
         {
-            "key": "field_6926ff82ffbbc",
+            "key": "field_6926f9ff20ad8",
             "label": "Link",
             "name": "link",
             "aria-label": "",
-            "type": "group",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -165,51 +165,12 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_6926ff98ffbbd",
-                    "label": "Überschrift",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_6926f9ff20ad8",
-                    "label": "Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "allow_in_bindings": 0
-                }
-            ]
+            "return_format": "array",
+            "allow_in_bindings": 0
         },
         {
             "key": "field_6926fa5d72898",
-            "label": "Links",
+            "label": "Mehr Links",
             "name": "links",
             "aria-label": "",
             "type": "group",
@@ -470,24 +431,6 @@
             "save_options": 0
         },
         {
-            "key": "field_6926fe58a5a0d",
-            "label": "Mockup & Screenshots",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
             "key": "field_6926f9ff20aa3",
             "label": "Rolle \/ Aufgabe",
             "name": "role",
@@ -519,6 +462,24 @@
             "placeholder": "",
             "create_options": 0,
             "save_options": 0
+        },
+        {
+            "key": "field_6926fe58a5a0d",
+            "label": "Mockup & Screenshots",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6926f9ff20b43",
@@ -617,74 +578,6 @@
             ]
         },
         {
-            "key": "field_6926f9ff20b78",
-            "label": "Screenshot 1",
-            "name": "screenshot_1",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_6926f9ff25128",
-                    "label": "Bild",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium"
-                },
-                {
-                    "key": "field_6926f9ff2515e",
-                    "label": "Art",
-                    "name": "type",
-                    "aria-label": "",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
-                    },
-                    "default_value": "",
-                    "return_format": "value",
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "layout": "horizontal"
-                }
-            ]
-        },
-        {
             "key": "field_6926f9ff20bad",
             "label": "Screenshot 2",
             "name": "screenshot_2",
@@ -749,6 +642,74 @@
                     "allow_null": 0,
                     "allow_in_bindings": 0,
                     "layout": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6926f9ff20b78",
+            "label": "Screenshot 1",
+            "name": "screenshot_1",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_6926f9ff25128",
+                    "label": "Bild",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_6926f9ff2515e",
+                    "label": "Art",
+                    "name": "type",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "full": "Ganze Seite",
+                        "screen": "Ausschnitt"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -1331,6 +1292,27 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_692715bac0f2d",
+                    "label": "Überschrift",
+                    "name": "headline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_691dc8b40265e",
                     "label": "Text",
                     "name": "text",
@@ -1347,7 +1329,7 @@
                     "default_value": "",
                     "allow_in_bindings": 0,
                     "tabs": "all",
-                    "toolbar": "basic",
+                    "toolbar": "full",
                     "media_upload": 0,
                     "delay": 0
                 },
@@ -1392,35 +1374,11 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_691dc8b414adb",
-                            "label": "Art",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": "horizontal"
                         }
                     ]
                 },
                 {
-                    "key": "field_691dc8b402892",
+                    "key": "field_692a0585ddf2e",
                     "label": "Screenshot 2",
                     "name": "screenshot_2",
                     "aria-label": "",
@@ -1436,7 +1394,7 @@
                     "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_691dc8b41a5cc",
+                            "key": "field_692a0585ddf2f",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -1460,35 +1418,11 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_691dc8b41a5ef",
-                            "label": "Art",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
-                            "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_691dc8b4028c7",
+                    "key": "field_692a058cddf32",
                     "label": "Screenshot 3",
                     "name": "screenshot_3",
                     "aria-label": "",
@@ -1504,7 +1438,7 @@
                     "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_691dc8b42023e",
+                            "key": "field_692a058cddf33",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -1528,35 +1462,11 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_691dc8b42027d",
-                            "label": "Art",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
-                            "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_691dc8b4028fc",
+                    "key": "field_692a0596ddf36",
                     "label": "Screenshot 4",
                     "name": "screenshot_4",
                     "aria-label": "",
@@ -1572,7 +1482,7 @@
                     "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_691dc8b425dde",
+                            "key": "field_692a0596ddf37",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -1596,98 +1506,6 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_691dc8b425e1e",
-                            "label": "Art",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
-                            "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": ""
-                        }
-                    ]
-                },
-                {
-                    "key": "field_691dc8b402932",
-                    "label": "Screenshot 5",
-                    "name": "screenshot_5",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "row",
-                    "sub_fields": [
-                        {
-                            "key": "field_691dc8b42b8c6",
-                            "label": "Bild",
-                            "name": "image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "allow_in_bindings": 0,
-                            "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_691dc8b42b906",
-                            "label": "Art",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": "horizontal"
                         }
                     ]
                 }
@@ -1728,6 +1546,27 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_692715d4c0f2e",
+                    "label": "Überschrift",
+                    "name": "headline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_6926f441c18ae",
                     "label": "Text",
                     "name": "text",
@@ -1762,7 +1601,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
                             "key": "field_6926f441c18b0",
@@ -1778,8 +1617,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -1791,11 +1630,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f441c18b1",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a0600dab16",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1804,20 +1643,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_6926f441c18b2",
+                    "key": "field_692a0622dab17",
                     "label": "Screenshot 2",
                     "name": "screenshot_2",
                     "aria-label": "",
@@ -1830,10 +1666,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_6926f441c18b3",
+                            "key": "field_692a0622dab18",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -1846,8 +1682,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -1859,11 +1695,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f441c18b4",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a0622dab19",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1872,20 +1708,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_6926f441c18b5",
+                    "key": "field_692a0627dab1a",
                     "label": "Screenshot 3",
                     "name": "screenshot_3",
                     "aria-label": "",
@@ -1898,10 +1731,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_6926f441c18b6",
+                            "key": "field_692a0627dab1b",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -1914,8 +1747,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -1927,11 +1760,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f441c18b7",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a0627dab1c",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1940,20 +1773,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_6926f441c18b8",
+                    "key": "field_692a062cdab1d",
                     "label": "Screenshot 4",
                     "name": "screenshot_4",
                     "aria-label": "",
@@ -1966,10 +1796,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_6926f441c18b9",
+                            "key": "field_692a062cdab1e",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -1982,8 +1812,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -1995,11 +1825,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f441c18ba",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a062cdab1f",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2007,84 +1837,13 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
                             },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
-                        }
-                    ]
-                },
-                {
-                    "key": "field_6926f441c18bb",
-                    "label": "Screenshot 5",
-                    "name": "screenshot_5",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_6926f441c18bc",
-                            "label": "Bild",
-                            "name": "image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "",
-                            "library": "",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "allow_in_bindings": 0,
-                            "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_6926f441c18bd",
-                            "label": "Art",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
-                            "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 }
@@ -2125,6 +1884,27 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_692715e4c0f2f",
+                    "label": "Überschrift",
+                    "name": "headline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_6926f443c18bf",
                     "label": "Text",
                     "name": "text",
@@ -2159,7 +1939,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
                             "key": "field_6926f443c18c1",
@@ -2175,8 +1955,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -2188,11 +1968,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f443c18c2",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a06b46520c",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2201,20 +1981,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_6926f443c18c3",
+                    "key": "field_692a06d16520d",
                     "label": "Screenshot 2",
                     "name": "screenshot_2",
                     "aria-label": "",
@@ -2227,10 +2004,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_6926f443c18c4",
+                            "key": "field_692a06d16520e",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -2243,8 +2020,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -2256,11 +2033,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f443c18c5",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a06d16520f",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2269,20 +2046,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_6926f443c18c6",
+                    "key": "field_692a06d665210",
                     "label": "Screenshot 3",
                     "name": "screenshot_3",
                     "aria-label": "",
@@ -2295,10 +2069,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_6926f443c18c7",
+                            "key": "field_692a06d665211",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -2311,8 +2085,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -2324,11 +2098,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f443c18c8",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a06d665212",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2337,20 +2111,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_6926f443c18c9",
+                    "key": "field_692a06db65213",
                     "label": "Screenshot 4",
                     "name": "screenshot_4",
                     "aria-label": "",
@@ -2363,10 +2134,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "",
+                    "layout": "row",
                     "sub_fields": [
                         {
-                            "key": "field_6926f443c18ca",
+                            "key": "field_692a06db65214",
                             "label": "Bild",
                             "name": "image",
                             "aria-label": "",
@@ -2379,8 +2150,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -2392,11 +2163,11 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_6926f443c18cb",
-                            "label": "Art",
-                            "name": "type",
+                            "key": "field_692a06db65215",
+                            "label": "Bildunterschrift",
+                            "name": "description",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2404,84 +2175,13 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
                             },
                             "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
+                            "maxlength": "",
                             "allow_in_bindings": 0,
-                            "layout": ""
-                        }
-                    ]
-                },
-                {
-                    "key": "field_6926f443c18cc",
-                    "label": "Screenshot 5",
-                    "name": "screenshot_5",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_6926f443c18cd",
-                            "label": "Bild",
-                            "name": "image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "",
-                            "library": "",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "allow_in_bindings": 0,
-                            "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_6926f443c18ce",
-                            "label": "Art",
-                            "name": "type",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "full": "Ganze Seite",
-                                "screen": "Ausschnitt"
-                            },
-                            "default_value": "",
-                            "return_format": "",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ]
                 }
@@ -2507,5 +2207,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764164274
+    "modified": 1764532317
 }

@@ -104,6 +104,7 @@
     align-items: center;
     gap: 0.5rem;
     color: color-mix(in srgb, var(--color-text) 66.6666%, var(--color-bg) 33.3333%);
+    @include font-size($small-font-size, $small-line-height);
   }
 
   &__disclaimer-icon {
@@ -116,7 +117,7 @@
   }
 
   &__disclaimer-text {
-    @include font-size($small-font-size, $small-line-height);
+    
   }
 
   &__visuals {
@@ -212,6 +213,12 @@
     max-height: 1200px;
   }
 
+  &__visual-description {
+    margin-top: 0.25rem;
+    color: color-mix(in srgb, var(--color-text) 66.6666%, var(--color-bg) 33.3333%);
+    @include font-size($small-font-size, $small-line-height);
+  }
+
   &__mockups-wrapper {}
 
   &__mockups {
@@ -220,7 +227,7 @@
     gap: 1rem;
     align-items: flex-end;
     justify-content: center;
-    background: var(--color-text);
+    background: var(--color-image-bg);
     padding: 2rem;
     @include media-breakpoint-up(md) {
       padding: 4rem;
@@ -408,5 +415,45 @@
     object-fit: cover;
     object-position: top center;
     max-height: 1200px;
+  }
+
+  &__case-studies {
+    display: flex;
+    gap: 2rem;
+    @include media-breakpoint-up(xl) {
+      gap: 4rem;
+    }
+  }
+
+  &__case-studies-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__case-study {}
+
+  &__case-study-picture {
+    aspect-ratio: 1 / 1;
+  }
+
+  &__case-study-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+  }
+
+  &__case-study-description {
+    margin-top: 0.25rem;
+    color: color-mix(in srgb, var(--color-text) 66.6666%, var(--color-bg) 33.3333%);
+    @include font-size($small-font-size, $small-line-height);
   }
 }

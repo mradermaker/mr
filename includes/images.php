@@ -12,6 +12,14 @@ add_filter('big_image_size_threshold', '__return_false');
  * add_image_size( string $name, int $width, int $height, bool|array $crop = false );
  * add_image_size( 'custom-size', 220, 220, array( 'left', 'top' ) );
  */
+add_image_size('image-half-xs', '543');
+add_image_size('image-half-sm', '512');
+add_image_size('image-half-md', '331');
+add_image_size('image-half-lg', '448');
+add_image_size('image-half-xl', '544');
+add_image_size('image-half-xxl', '640');
+add_image_size('image-half-xxxl', '706');
+add_image_size('image-xxs', '400');
 add_image_size('image-xs', '576');
 add_image_size('image-sm', '768');
 add_image_size('image-md', '992');
@@ -52,16 +60,27 @@ if (!function_exists('get_picture')) {
         $pictureClass = 'c-picture' . ($args['additionalPictureClass'] ? ' ' . $args['additionalPictureClass'] : '');
         $imageClass   = 'c-image'   . ($args['additionalImageClass']   ? ' ' . $args['additionalImageClass']   : '');
         $loading      = ($args['loading'] === 'eager') ? 'eager' : 'lazy';
+        $size         = $args['size'] ? $args['size'] : 'half';
 
         // Collect URLs with fallback chain
         $base = $img['url'] ?? '';
-        $xs   = $img['sizes']['image-xs']   ?? $base;
-        $sm   = $img['sizes']['image-sm']   ?? $xs;
-        $md   = $img['sizes']['image-md']   ?? $sm;
-        $lg   = $img['sizes']['image-lg']   ?? $md;
-        $xl   = $img['sizes']['image-xl']   ?? $lg;
-        $xxl  = $img['sizes']['image-xxl']  ?? $xl;
-        $xxxl = $img['sizes']['image-xxxl'] ?? $xxl;
+        if ($size === 'half') {
+            $xs   = $img['sizes']['image-half-xs'] ?? $img['sizes']['image-xs'] ?? $base;
+            $sm   = $img['sizes']['image-half-sm'] ?? $img['sizes']['image-xs'] ?? $base;
+            $md   = $img['sizes']['image-half-md'] ?? $img['sizes']['image-xxs'] ?? $base; 
+            $lg   = $img['sizes']['image-half-lg'] ?? $img['sizes']['image-xs'] ?? $base; 
+            $xl   = $img['sizes']['image-half-xl'] ?? $img['sizes']['image-xs'] ?? $base;
+            $xxl  = $img['sizes']['image-half-xxl'] ?? $img['sizes']['image-sm'] ?? $base;
+            $xxxl = $img['sizes']['image-half-xxxl'] ?? $img['sizes']['image-sm'] ?? $base;
+        } else {
+            $xs   = $img['sizes']['image-xs'] ?? $base;
+            $sm   = $img['sizes']['image-sm'] ?? $xs;
+            $md   = $img['sizes']['image-md'] ?? $sm;
+            $lg   = $img['sizes']['image-lg'] ?? $md;
+            $xl   = $img['sizes']['image-xl'] ?? $lg;
+            $xxl  = $img['sizes']['image-xxl'] ?? $xl;
+            $xxxl = $img['sizes']['image-xxxl'] ?? $xxl;
+        }
 
         // Dimensions from largest size (reduces CLS)
         $w = $img['sizes']['image-xxxl-width']  ?? null;

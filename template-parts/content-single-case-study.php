@@ -16,13 +16,24 @@ $cat_names_filtered = array_diff( $cat_names, [ $default_cat_name ] );
 
 // Content
 $color = get_field('color') ?: '#7f7f7f';
-$image = get_field('image') ?? [];
+$image = get_field('image') ?? []; 
 $headline = get_field('headline') ?? null;
 $text = get_field('text') ?? null;
+$text_more = get_field('text_more') ?? null;
 $technologies = get_field('technology') ?? [];
 $design = get_field('design') ?? [];
 $roles = get_field('role') ?? [];
 $link = get_field('link') ?? [];
+$links = [];
+for ($i = 1; $i <= 5; $i++) {
+    $links_field = get_field("links_{$i}") ?? [];
+    
+    if (!empty($links_field['url'])) {
+        $links["links_{$i}"] = [
+            'link' => $links_field
+        ];
+    }
+}
 $up_to_date = get_field('up-to-date') ?? true;
 
 // Mockup & Screenshots
@@ -35,7 +46,7 @@ $screenshots = [];
 for ($i = 1; $i <= 10; $i++) {
     $screenshot_field = get_field("screenshot_{$i}") ?? [];
     $screenshot_image = $screenshot_field['image'] ?? [];
-    
+
     if (!empty($screenshot_image['url'])) {
         $screenshots["screenshot_{$i}"] = [
             'image' => $screenshot_image,
@@ -43,6 +54,7 @@ for ($i = 1; $i <= 10; $i++) {
         ];
     }
 }
+
 $screens = [];
 $fulls = [];
 foreach ($screenshots as $screenshot) {
@@ -52,21 +64,29 @@ foreach ($screenshots as $screenshot) {
         $fulls[] = $screenshot;
     }
 }
+
+// Case Studies
+$case_studies = [];
+for ($i = 1; $i <= 3; $i++) {
+    $case_study_field = get_field("case_study_{$i}") ?? [];
+    $case_study_headline = $case_study_field['headline'] ?? null;
+    $case_study_text = $case_study_field['text'] ?? null;
+    $case_study_images = [];
+    for ($j = 1; $j <= 4; $j++) {
+        if (!empty($case_study_field["screenshot_{$j}"]['image']['url'])) {
+            $case_study_images["image_{$j}"] = $case_study_field["screenshot_{$j}"];
+        }
+    }
+
+    $case_studies["case_study_{$i}"] = [
+        'headline' => $case_study_headline,
+        'text' => $case_study_text,
+        'images' => $case_study_images,
+    ];
+}
 ?>
 
 <article class="c-post" style="--color-project: <?php echo $color; ?>;">
-    <?php if (!empty($image['image']['url'])) { ?>
-        <div class="c-post__header <?php echo !empty($image['type']) ? '--' . esc_attr($image['type']) : ''; ?> o-container-fluid">
-            <?php
-            get_picture($image['image'], [
-                'additionalPictureClass' => 'c-post__header-picture',
-                'additionalImageClass'   => 'c-post__header-image',
-                'size' => 'full',
-            ]);
-            ?>
-        </div>
-    <?php } ?>
-
     <div class="c-post__container o-container">
         <div class="c-post__row o-row --position-center">
             <div class="c-post__content o-col-12 o-col-md-6 o-col-xl-5">
@@ -113,7 +133,7 @@ foreach ($screenshots as $screenshot) {
                     <?php } ?>
                 </div>
                 <?php if (!empty($link['url'])) { ?>
-                    <a class="c-post__link c-button" href="<?php echo esc_url($link['url']); ?>" target="_blank" rel="noopener noreferrer"><?php if (!empty($link['title'])) { echo $link['title']; } else { echo 'Link zum Projekt'; } ?></a>
+                    <a class="c-post__link c-button" href="<?php echo esc_url($link['url']); ?>" target="_blank" rel="noopener noreferrer"><?php if (!empty($link['title'])) { echo $link['title']; } else { echo 'Link zur Website'; } ?></a>
                 <?php } ?>
 
                 <?php if (!$up_to_date) { ?>
@@ -121,6 +141,60 @@ foreach ($screenshots as $screenshot) {
                 <?php } ?>
             </div>
         </div>
+
+        <?php if (!empty($image['image']['url'])) { ?>
+            <div class="c-post__visuals o-row">
+                <div class="c-post__visual-wrapper --screen o-col-12">
+                    <div class="c-post__visual">
+                        <?php
+                        get_picture($image['image'], [
+                            'additionalPictureClass' => 'c-post__visual-picture',
+                            'additionalImageClass'   => 'c-post__visual-image',
+                            'size' => 'full',
+                        ]);
+                        ?>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        
+        <!-- <?php if (!empty($text_more)) { ?>
+            <div class="c-post__row o-row --position-center">
+                <div class="c-post__content o-col-12 o-col-xl-8">
+                    <div class="c-post__text c-wysiwyg"><?php echo $text_more; ?></div>
+                </div>
+            </div>
+        <?php } ?> -->
+
+        <?php foreach ($case_studies as $case_study) { ?>
+            <div class="c-post__case-studies o-row">
+                <div class="c-post__content o-col-12 o-col-xl-8">
+                    <?php if (!empty($case_study['headline'])) { ?>
+                        <h2 class="c-post__headline c-headline"><?php echo $case_study['headline']; ?></h2>
+                    <?php } ?>
+                    <?php if (!empty($case_study['text'])) { ?>
+                        <div class="c-post__text c-wysiwyg"><?php echo $case_study['text']; ?></div>
+                    <?php } ?>
+                </div>
+
+                <div class="c-post__case-studies-wrapper o-col-12">
+                    <?php
+                    foreach ($case_study['images'] as $case) { ?>
+                        <figure class="c-post__case-study">
+                            <?php 
+                            get_picture($case['image'], [
+                                'additionalPictureClass' => 'c-post__case-study-picture',
+                                'additionalImageClass'   => 'c-post__case-study-image'
+                            ]);
+                            ?>
+                            <?php if (!empty($case['image']['description'])) { ?>
+                                <figcaption class="c-post__visual-description"><?php echo $case['image']['description']; ?></figcaption>
+                            <?php } ?>
+                        </figure>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } ?>
 
         <?php if (!empty($screenshots) || !empty($mockup_mobile['url']) || !empty($mockup_tablet['url']) || !empty($mockup_desktop['url'])) { ?>
             <div class="c-post__visuals o-row">
@@ -134,11 +208,11 @@ foreach ($screenshots as $screenshot) {
                                 <?php
                                 get_picture($screenshot['image'], [
                                     'additionalPictureClass' => 'c-post__visual-picture',
-                                    'additionalImageClass'   => 'c-post__visual-image',
+                                    'additionalImageClass' => 'c-post__visual-image',
                                 ]);
                                 ?>
                             </div>
-                            <?php if (!empty($case['image']['description'])) { ?>
+                            <?php if (!empty($screenshot['image']['description'])) { ?>
                                 <figcaption class="c-post__visual-description"><?php echo $screenshot['image']['description']; ?></figcaption>
                             <?php } ?>
                         </figure>
@@ -148,7 +222,7 @@ foreach ($screenshots as $screenshot) {
                         $screenshot = array_shift($screens);
                         ?>
                         <div class="c-post__visual-wrapper --screen o-col-12">
-                            <div class="c-post__visual">
+                            <figure class="c-post__visual">
                                 <?php
                                 get_picture($screenshot['image'], [
                                     'additionalPictureClass' => 'c-post__visual-picture',
@@ -156,7 +230,10 @@ foreach ($screenshots as $screenshot) {
                                     'size' => 'full',
                                 ]);
                                 ?>
-                            </div>
+                                <?php if (!empty($screenshot['image']['description'])) { ?>
+                                    <figcaption class="c-post__visual-description"><?php echo $screenshot['image']['description']; ?></figcaption>
+                                <?php } ?>
+                            </figure>
                         </div>
                     <?php } ?>
                 <?php } ?>
