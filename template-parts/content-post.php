@@ -24,12 +24,13 @@ $role = $args['role'] ?? null;
 $color = get_field('color') ?: '#7f7f7f';
 $image = get_field('image') ?? [];
 $headline = get_field('headline') ?? null;
+$excerpt = get_the_excerpt() ?? null;
 $text = get_field('text') ?? null;
 ?>
 
 <article class="c-post-card o-col-12 o-col-md-6" data-category="<?php echo implode( ',', $cat_names_lower ); ?>" <?php echo $role ? 'role="' . esc_attr($role) . '"' : ''; ?> style="--color-project: <?php echo $color; ?>;">
     <?php if (!empty($post_link)) { ?>
-            <a class="c-post-card__image-wrapper" href="<?php echo $post_link; ?>" aria-label="Zur Detailansicht von <?php echo $headline; ?>">
+        <a class="c-post-card__image-wrapper <?php echo !empty($image['type']) ? '--' . esc_attr($image['type']) : ''; ?>" href="<?php echo $post_link; ?>" aria-label="Zur Detailansicht von <?php echo $headline; ?>">
     <?php } ?>
         <?php if (!empty($image['image']['url'])) { ?>
             <?php
@@ -42,12 +43,13 @@ $text = get_field('text') ?? null;
     <?php if (!empty($post_link)) { ?>
         </a>
     <?php } ?>
+
     <div class="c-post-card__content">
         <?php if (!empty($headline)) { ?>
             <h3 class="c-post-card__headline c-headline"><?php echo $headline; ?></h3>
         <?php } ?>
-        <?php if (!empty($text)) { ?>
-            <div class="c-post-card__text c-wysiwyg"><?php echo $text; ?></div>
+        <?php if (!empty($text) || !empty($excerpt)) { ?>
+            <div class="c-post-card__text c-wysiwyg"><?php echo $excerpt ? $excerpt : $text; ?></div>
         <?php } ?>
         <?php
         if (!empty($cat_names_filtered) && is_array($cat_names_filtered)) {
@@ -62,7 +64,6 @@ $text = get_field('text') ?? null;
             echo '</ul>';
         }
         ?>
-            <?php if (!empty($post_link)) { ?><a class="c-post-card__link" href="<?php echo $post_link; ?>" aria-label="Projekt ansehen von <?php echo $headline; ?>">Projekt ansehen</a><?php } ?>
-        </div>
+        <?php if (!empty($post_link)) { ?><a class="c-post-card__link" href="<?php echo $post_link; ?>" aria-label="Projekt ansehen von <?php echo $headline; ?>">Projekt ansehen</a><?php } ?>
     </div>
 </article>
