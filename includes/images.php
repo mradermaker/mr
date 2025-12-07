@@ -60,7 +60,7 @@ if (!function_exists('get_picture')) {
         $pictureClass = 'c-picture' . ($args['additionalPictureClass'] ? ' ' . $args['additionalPictureClass'] : '');
         $imageClass   = 'c-image'   . ($args['additionalImageClass']   ? ' ' . $args['additionalImageClass']   : '');
         $loading      = ($args['loading'] === 'eager') ? 'eager' : 'lazy';
-        $size         = $args['size'] ? $args['size'] : 'half';
+        $size         = $args['size'] ?? 'half';
 
         // Collect URLs with fallback chain
         $base = $img['url'] ?? '';
