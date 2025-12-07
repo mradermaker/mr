@@ -91,6 +91,6 @@ if (!function_exists('get_icon')) {
         }
 
         // Output the SVG as XML
-        echo $svg->asXML();
+        echo preg_replace('/<\?xml.*?\?>\s*/', '', $svg->asXML());
     }
 }

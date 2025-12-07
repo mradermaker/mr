@@ -51,7 +51,7 @@
                 <p class="c-footer__copyright">
                     monika-radermaker.de &copy; <?php echo date('Y',); ?>
                 </p>
-                <nav id="footer-nav" class="c-footer__nav c-footer-nav" aria-label="<?php echo esc_html_e('Footer-Navigation', 'mr',); ?>" role="navigation">
+                <nav id="footer-nav" class="c-footer__nav c-footer-nav" aria-label="<?php echo esc_html_e('Footer-Navigation', 'mr',); ?>">
                     <?php wp_nav_menu([
                         'theme_location'	=> 'footer-nav',
                         'menu_class'		=> 'c-footer-nav__list',
