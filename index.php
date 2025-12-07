@@ -81,6 +81,7 @@ get_header();
                         while ( $blog_query->have_posts() ) : $blog_query->the_post();
                             get_template_part( 'template-parts/content', get_post_type(), ['role' => 'listitem'] );
                         endwhile;
+                        // get_template_part( 'template-parts/content', get_post_type().'-none', ['role' => 'listitem'] );
                     ?>
                 </div>
                 <?php

@@ -75,6 +75,18 @@
     }
   }
 
+  &.--post {
+    top: -2rem;
+    right: 1rem;
+    width: auto;
+    #{$c-handwritten}__icon {
+      top: calc(100% + 0.25rem);
+      right: 2rem;
+      rotate: -90deg;
+      scale: 1 -1;
+    }
+  }
+
   &.--footer {
     width: 100%;
     bottom: calc(100% + 0.5rem);
