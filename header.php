@@ -33,7 +33,7 @@ $hide_header = is_page(MR_LOGIN_ID) || ( is_page($hide_header_pages) && !is_user
 
     <link rel="manifest" href="/site.webmanifest">
 
-    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#111111">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#111111">
 
 	<?php wp_head(); ?>
 </head>
