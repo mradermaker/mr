@@ -20,6 +20,21 @@ $hide_header = is_page(MR_LOGIN_ID) || ( is_page($hide_header_pages) && !is_user
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg"  media="(prefers-color-scheme: dark)">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/web-app-manifest-512x512.png">
+
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#111111">
+
 	<?php wp_head(); ?>
 </head>
 
