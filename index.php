@@ -28,9 +28,12 @@ get_header();
             
             <?php
             $args = array(
-                'post_type'      => 'post',
-                'posts_per_page' => -1,
-                'tag__not_in' => array(8),
+                'post_type'         => 'post',
+                'posts_per_page'    => -1,
+                'meta_key'          => 'sort',
+                'orderby'           => 'meta_value_num',
+                'order'             => 'DESC',
+                'tag__not_in'       => array(8),
             );
             $blog_query = new WP_Query( $args );
 
@@ -73,7 +76,7 @@ get_header();
                     );?>
                 </div>
                 
-                <div id="portfolio-grid" class="c-portfolio__cards o-row --position-center" role="list">
+                <div id="portfolio-grid" class="c-portfolio__cards o-row" role="list">
                     <?php
                         while ( $blog_query->have_posts() ) : $blog_query->the_post();
                             get_template_part( 'template-parts/content', get_post_type(), ['role' => 'listitem'] );
