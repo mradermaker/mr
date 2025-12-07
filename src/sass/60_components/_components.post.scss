@@ -2,20 +2,29 @@
   $c-post: &;
 
   &__header {
-    background: color-mix(in srgb, var(--color-project) 50%, var(--color-image-bg) 50%);
     display: flex;
     align-items: center;
     justify-content: center;
     aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--color-project) 50%, var(--color-image-bg) 50%);
+    padding: 0;
+
+    @include media-breakpoint-up(xl) {
+      height: 70dvh;
+    }
 
     &.--screen {
       padding: 2rem;
 
       @include media-breakpoint-up(xl) {
-        height: 70dvh;
         padding: 4rem 20dvw;
       }
     }
+
+    &.--full {}
+
+    &.--print {}
   }
 
   &__header-picture {
@@ -30,6 +39,10 @@
       max-height: 100%;
       aspect-ratio: 16 / 9;
     }
+
+    .--full & {}
+
+    .--print & {}
   }
 
   &__header-image {
@@ -162,6 +175,8 @@
         }
       }
     }
+
+    &.--print {}
   }
 
   &__visual {
@@ -185,6 +200,8 @@
         aspect-ratio: 3 / 4;
       }
     }
+
+    .--print & {}
   }
 
   &__visual-picture {
@@ -203,6 +220,8 @@
       height: 100%;
       border-radius: 0.125rem;
     }
+
+    .--print & {}
   }
 
   &__visual-image {

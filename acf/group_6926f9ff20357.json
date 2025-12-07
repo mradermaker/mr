@@ -77,8 +77,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -381,7 +382,9 @@
                 "Bootstrap": "Bootstrap",
                 "Javascript": "Javascript",
                 "JQuery": "JQuery",
+                "Affinity": "Affinity",
                 "Axure": "Axure",
+                "Figma": "Figma",
                 "Adobe XD": "Adobe XD",
                 "Adobe Photoshop": "Adobe Photoshop",
                 "Adobe Illustrator": "Adobe Illustrator",
@@ -578,74 +581,6 @@
             ]
         },
         {
-            "key": "field_6926f9ff20bad",
-            "label": "Screenshot 2",
-            "name": "screenshot_2",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_6926f9ff2652d",
-                    "label": "Bild",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium"
-                },
-                {
-                    "key": "field_6926f9ff26564",
-                    "label": "Art",
-                    "name": "type",
-                    "aria-label": "",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
-                    },
-                    "default_value": "",
-                    "return_format": "",
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "layout": ""
-                }
-            ]
-        },
-        {
             "key": "field_6926f9ff20b78",
             "label": "Screenshot 1",
             "name": "screenshot_1",
@@ -702,8 +637,78 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "layout": "horizontal"
+                }
+            ]
+        },
+        {
+            "key": "field_6926f9ff20bad",
+            "label": "Screenshot 2",
+            "name": "screenshot_2",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_6926f9ff2652d",
+                    "label": "Bild",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_6926f9ff26564",
+                    "label": "Art",
+                    "name": "type",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -770,14 +775,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -838,14 +844,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -906,8 +913,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -974,14 +982,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -1042,14 +1051,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -1110,14 +1120,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -1178,14 +1189,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -1246,8 +1258,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -2207,5 +2220,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764532317
+    "modified": 1765130349
 }

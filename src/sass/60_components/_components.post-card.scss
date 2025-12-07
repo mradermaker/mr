@@ -9,20 +9,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
-    background: color-mix(in srgb, var(--color-project) 50%, var(--color-image-bg) 50%);
-    border: 2px solid var(--color-text);
     aspect-ratio: 4 / 3;
+    background: color-mix(in srgb, var(--color-project) 50%, var(--color-image-bg) 50%);
+    overflow: hidden;
 
-    @include media-breakpoint-up(xl) {
-      padding: 4rem;
+    &.--screen {
+      padding: 2rem;
+
+      @include media-breakpoint-up(xl) {
+        padding: 4rem;
+      }
+    }
+    &.--full {}
+
+    &.--print {}
+
+    &.--placeholder {
+      overflow: visible;
     }
   }
 
   &__picture {
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 0.25rem;
-    overflow: hidden;
+    .--screen & {
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 0.25rem;
+      overflow: hidden;
+    }
+    .--full & {
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 0.25rem;
+      overflow: hidden;
+    }
+
+    .--print & {}
   }
 
   &__image {}

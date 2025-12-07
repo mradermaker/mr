@@ -77,8 +77,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -235,7 +236,9 @@
                 "Bootstrap": "Bootstrap",
                 "Javascript": "Javascript",
                 "JQuery": "JQuery",
+                "Affinity": "Affinity",
                 "Axure": "Axure",
+                "Figma": "Figma",
                 "Adobe XD": "Adobe XD",
                 "Adobe Photoshop": "Adobe Photoshop",
                 "Adobe Illustrator": "Adobe Illustrator",
@@ -488,8 +491,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -556,14 +560,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -624,14 +629,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -692,14 +698,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -760,14 +767,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -828,8 +836,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -896,14 +905,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -964,14 +974,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -1032,14 +1043,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
-                    "return_format": "",
+                    "return_format": "value",
                     "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "layout": ""
+                    "layout": "horizontal"
                 }
             ]
         },
@@ -1100,8 +1112,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "full": "Ganze Seite",
-                        "screen": "Ausschnitt"
+                        "full": "Website (Ganz)",
+                        "screen": "Website (Ausschnitt)",
+                        "print": "Print"
                     },
                     "default_value": "",
                     "return_format": "value",
@@ -1136,5 +1149,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764164253
+    "modified": 1765130250
 }
