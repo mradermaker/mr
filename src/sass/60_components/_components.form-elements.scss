@@ -19,18 +19,14 @@ $form-outline: $outline;
 $form-focus: var(--color-primary);
 $form-duration: 0.25s; // Transition duration
 $form-timing: ease-in-out; // Transition timing
-$form-svg-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E");
 $form-svg-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-$form-svg-checkbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
-$form-svg-calendar: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM48 192l352 0 0 256c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256z"/></svg>');
+$form-svg-checkbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
 $form-color: var(--color-text);
 $form-bg: var(--color-bg);
 $form-shadow: 0 0 5px var(--color-text);
 $form-dropdown: var(--color-bg);
 $form-selected: var(--color-text);
-$form-placeholder: var(--color-text);
-$form-primary: var(--color-text);
-$form-primary-contrast: var(--color-bg);
+$form-placeholder: var(--color-image-bg);
 $form-valid-color: var(--color-success);
 $form-invalid-color: var(--color-error);
 
@@ -62,14 +58,17 @@ $form-invalid-color: var(--color-error);
 
     &:not([hidden]) {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 0.5rem;
     }
   }
 
   &__error-icon {
-    width: $icon-size-sm;
-    height: $icon-size-sm;
+    width: $icon-size-xs;
+    height: $icon-size-xs;
+    flex-shrink: 0;
+    position: relative;
+    bottom: -0.125rem;
   }
 
   &__error-text {}
@@ -235,13 +234,6 @@ $form-invalid-color: var(--color-error);
   margin: 0;
   box-sizing: border-box;
 
-  &:not(& ~ &) {
-    margin-top: 0.5rem;
-    @include media-breakpoint-up(xl) {
-      margin-top: 1rem;
-    }
-  }
-
   // Input -------------------------------------------------------------- //
   &__input {
     position: absolute;
@@ -249,7 +241,7 @@ $form-invalid-color: var(--color-error);
     appearance: none;
     margin: 0;
     left: 0;
-    top: 0.125rem;
+    bottom: -0.125rem;
     width: $form-control-wrapper;
     height: $form-control-wrapper;
     pointer-events: none;
@@ -258,7 +250,7 @@ $form-invalid-color: var(--color-error);
   // Label -------------------------------------------------------------- //
   &__label {
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
     position: relative;
     hyphens: auto;
 
@@ -267,17 +259,21 @@ $form-invalid-color: var(--color-error);
       display: block;
       width: $form-control-wrapper;
       height: $form-control-wrapper;
-      border-radius: $border-radius-small;
       flex-shrink: 0;
       margin-right: 0.5rem;
       background: $form-bg;
+      border: $form-border $form-border-color;
+      border-radius: $border-radius-small;
+      outline: $form-outline;
       position: relative;
-      top: 0.125rem;
+      bottom: -0.25rem;
       border: $form-border $form-border-color;
       outline: $form-outline;
       transition: outline $form-duration $form-timing,
         border $form-duration $form-timing,
         background-color $form-duration $form-timing;
+          color: $form-color;
+
     }
 
     &:after {
@@ -285,14 +281,14 @@ $form-invalid-color: var(--color-error);
       display: block;
       width: $form-control-icon;
       height: $form-control-icon;
-      border-radius: $border-radius-small;
       position: absolute;
-      top: 0.25rem;
+      top: 0.375rem;
       left: 0.125rem;
-      background-color: $form-primary-contrast;
+      background-color: $form-color;
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: center;
+      border-radius: $border-radius-small;
       transform: scale(0);
       mask: $form-svg-checkbox;
       mask-repeat: no-repeat;
@@ -303,23 +299,18 @@ $form-invalid-color: var(--color-error);
     }
   }
 
-  &__input[type='radio'] + &__label {
+  &__input.--radio + &__label {
     &:before {
       border-radius: 100%;
     }
     &:after {
       mask: none;
-      background-color: $form-primary;
       border-radius: 100%;
     }
   }
 
   &__input:checked + &__label {
-    &:before {
-      background-color: $form-primary;
-      border: 2px solid $form-bg;
-      outline: 1px solid $form-border-color;
-    }
+    &:before {}
 
     &:after {
       transform: scale(1);

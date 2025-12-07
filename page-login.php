@@ -87,6 +87,11 @@ get_header();
                             </div>
                         </div>
 
+                        <div class="c-control">
+                            <input class="c-control__input --checkbox" type="checkbox" name="rememberme" id="rememberme" value="forever">
+                            <label class="c-control__label" for="rememberme">Angemeldet bleiben</label>
+                        </div>
+
                         <input type="submit" name="wp-submit" class="c-button" value="Anmelden" />
                     </form>
 

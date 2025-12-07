@@ -6,12 +6,15 @@
   background-color: var(--color-bg);
   border: 2px solid currentColor;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.5rem;
 
   &__icon {
     width: $icon-size-xs;
     height: $icon-size-xs;
+    flex-shrink: 0;
+    position: relative;
+    bottom: -0.125rem;
   }
 
   &.--is-success {
