@@ -126,7 +126,7 @@ get_header();
                         <span class="c-handwritten__text">nächste berufliche Herausforderung</span>
                     </div>
                     <p class="c-timeline-card__date"><?php echo date('Y'); ?></p>
-                    <h3 class="c-timeline-card__job-title"><?php echo !empty($job) ? esc_html($job) : 'Frontend Developer'; ?></h3>
+                    <h3 class="c-timeline-card__job-title"><?php echo !empty($job) ? esc_html($job) : 'Frontend Developer / Designerin'; ?></h3>
                     <p class="c-timeline-card__company"><?php echo !empty($company) ? esc_html($company) : 'Ihre Firma'; ?></p>
                 </article>
 
