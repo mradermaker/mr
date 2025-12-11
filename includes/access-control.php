@@ -39,6 +39,58 @@ if (!function_exists('mr_is_portfolio_post')) {
 }
 
 /**
+ * Get the base URL to redirect back to after a login attempt.
+ *
+ * @return string
+ */
+if (!function_exists('mr_get_login_redirect_base_url')) :
+    function mr_get_login_redirect_base_url(): string {
+
+        // Redirect_to parameter (GET/POST/REQUEST)
+        if (!empty($_REQUEST['redirect_to'])) {
+            $url = $_REQUEST['redirect_to'];
+        } else {
+            // Referer, if available
+            $url = wp_get_referer();
+            if (!$url) {
+                // Fallback to home URL
+                $url = home_url('/');
+            }
+        }
+
+        return esc_url_raw($url);
+    }
+endif;
+
+/**
+ * Strip all login-related status query parameters and anchor from URL.
+ */
+if (!function_exists('mr_strip_login_status_params')) {
+    function mr_strip_login_status_params(string $url): string {
+        // Remove known status query parameters
+        $url = remove_query_arg(
+            array(
+                'login',
+                'loggedout',
+                'noaccess',
+                'checkemail',
+                'resetpass',
+                'reauth',
+                'expiredkey',
+                'invalidkey',
+            ),
+            $url
+        );
+
+        // Remove anchor if present
+        $url = preg_replace('/#status$/', '', $url);
+
+        return $url;
+    }
+}
+
+
+/**
  * Redirect portfolio posts when the user is not logged in.
  */
 if (!function_exists('mr_protect_portfolio_posts')) {
@@ -67,31 +119,6 @@ if (!function_exists('mr_protect_portfolio_posts')) {
 }
 
 /**
- * Block wp-admin for "portfolio" users
- */
-if (!function_exists('mr_block_admin_for_portfolio')) {
-	function mr_block_admin_for_portfolio(): void {
-		if (!is_user_logged_in() ) return;
-
-		// Let admins (or anyone with manage_options) in
-		if (current_user_can('manage_options')) return;
-
-		// Block only "portfolio" users (allow AJAX)
-		if (mr_is_portfolio_user() && !(defined('DOING_AJAX') && DOING_AJAX)) {
-            // Redirect target: homepage with anchor #login
-            $target = home_url('/') . '#login';
-
-            // Add a flag so you can display a message in the UI
-            $target = add_query_arg('noaccess', 'admin', $target);
-
-            wp_safe_redirect($target);
-            exit;
-		}
-	}
-	add_action('admin_init', 'mr_block_admin_for_portfolio');
-}
-
-/**
  * Hide admin bar on the frontend for "portfolio" users
  *
  * @param bool $show Whether to show the admin bar.
@@ -111,45 +138,107 @@ if (!function_exists('mr_hide_admin_bar_for_portfolio')) {
 }
 
 /**
+ * Block wp-admin for "portfolio" users
+ */
+if (!function_exists('mr_block_admin_for_portfolio')) {
+	function mr_block_admin_for_portfolio(): void {
+		if (!is_user_logged_in() ) return;
+
+		// Let admins (or anyone with manage_options) in
+		if (current_user_can('manage_options')) return;
+
+		// Block only "portfolio" users (allow AJAX)
+		if (mr_is_portfolio_user() && !(defined('DOING_AJAX') && DOING_AJAX)) {
+			// Base URL: login page
+			$target = get_permalink(MR_LOGIN_ID);
+
+            // Fallback
+            if (!$target) {
+                $target = home_url('/');
+            }
+
+			// Add status flag
+			$target = add_query_arg('noaccess', 'admin', $target);
+
+			// Add anchor for auto-scroll
+			$target .= '#status';
+
+            wp_safe_redirect($target);
+            exit;
+		}
+	}
+	add_action('admin_init', 'mr_block_admin_for_portfolio');
+}
+
+/**
  * Redirects after login/logout
  */
 if (!function_exists('mr_login_redirect')) {
 	function mr_login_redirect( $redirect_to, $requested_redirect_to, $user ) {
-		return $requested_redirect_to ?: home_url('/');
+
+        // Use the requested redirect URL or fallback to home
+        $target = $requested_redirect_to ?: home_url('/');
+
+        // Strip any existing status flags first
+        $target = mr_strip_login_status_params($target);
+
+		return $target;
 	}
 	add_filter('login_redirect', 'mr_login_redirect', 10, 3);
 }
 
 if (!function_exists('mr_logout_redirect')) {
     function mr_logout_redirect( $redirect_to, $requested_redirect_to, $user ) {
-        $target = home_url('/');
-        return add_query_arg('loggedout', 'true', $target);
+        // Base URL: login page
+        $target = get_permalink(MR_LOGIN_ID);
+
+        // Fallback
+        if (!$target) {
+            $target = home_url('/');
+        }
+
+        // Add status flag
+        $target = add_query_arg('loggedout', 'true', $target);
+
+        // Add anchor
+        $target .= '#status';
+        
+        return $target;
     }
 	add_filter('logout_redirect', 'mr_logout_redirect', 10, 3);
 }
 
 /**
- * Get the base URL to redirect back to after a login attempt.
- *
- * @return string
+ * If a logout action is called while not logged in, redirect
  */
-if (!function_exists('mr_get_login_redirect_base_url')) :
-    function mr_get_login_redirect_base_url(): string {
+if (!function_exists('mr_block_logout_when_logged_out')) :
+    function mr_block_logout_when_logged_out(): void {
 
-        // redirect_to parameter (GET/POST/REQUEST)
-        if (!empty($_REQUEST['redirect_to'])) {
-            $url = $_REQUEST['redirect_to'];
-        } else {
-            // Referer, if available
-            $url = wp_get_referer();
-            if (!$url) {
-                // Fallback to home URL
-                $url = home_url('/');
-            }
+        // Only care about visitors that are NOT logged in
+        if ( is_user_logged_in() ) {
+            return;
         }
 
-        return esc_url_raw($url);
+        // If someone hits a logout action while logged out
+        if ( isset($_GET['action']) && $_GET['action'] === 'logout' ) {
+
+            // Start from base URL (redirect_to or referer)
+            $redirect_url = mr_get_login_redirect_base_url();
+
+            // Strip any existing status flags first
+            $redirect_url = mr_strip_login_status_params($redirect_url);
+
+            // Add login status flag
+            $redirect_url = add_query_arg('loggedout', 'true', $redirect_url);
+
+            // Add anchor
+            $redirect_url .= '#status';
+
+            wp_safe_redirect($redirect_url);
+            exit;
+        }
     }
+    add_action('init', 'mr_block_logout_when_logged_out');
 endif;
 
 /**
@@ -158,10 +247,17 @@ endif;
 if (!function_exists('mr_redirect_on_failed_login')) :
     function mr_redirect_on_failed_login( $username ) {
 
+        // Start from base URL (redirect_to or referer)
         $redirect_url = mr_get_login_redirect_base_url();
+
+        // Strip any existing status flags first
+        $redirect_url = mr_strip_login_status_params($redirect_url);
 
         // Add login status flag
         $redirect_url = add_query_arg('login', 'failed', $redirect_url);
+
+        // Add anchor
+        $redirect_url .= '#status';
 
         wp_safe_redirect($redirect_url);
         exit;
@@ -177,10 +273,17 @@ if (!function_exists('mr_redirect_on_empty_login')) :
 
         if (isset($_POST['log'], $_POST['pwd']) && ($username === '' || $password === '')) {
 
+            // Start from base URL (redirect_to or referer)
             $redirect_url = mr_get_login_redirect_base_url();
+
+            // Strip any existing status flags first
+            $redirect_url = mr_strip_login_status_params($redirect_url);
 
             // Add login status flag
             $redirect_url = add_query_arg('login', 'empty', $redirect_url);
+
+            // Add anchor
+            $redirect_url .= '#status';
 
             wp_safe_redirect($redirect_url);
             exit;

@@ -108,11 +108,12 @@ function get_login_messages(): array {
 
 		// All others
 		$known_keys = [
+			'login',
 			'loggedout',
+			'noaccess',
 			'checkemail',
 			'resetpass',
 			'reauth',
-			'login',
 			'expiredkey',
 			'invalidkey',
 		];
