@@ -179,6 +179,12 @@ if (!function_exists('mr_login_redirect')) {
         // Use the requested redirect URL or fallback to home
         $target = $requested_redirect_to ?: home_url('/');
 
+        // If redirect target is the login page, send to home instead
+        $login_url = get_permalink(MR_LOGIN_ID);
+        if ($login_url && strpos($target, trailingslashit($login_url)) === 0) {
+            $target = home_url('/');
+        }
+
         // Strip any existing status flags first
         $target = mr_strip_login_status_params($target);
 
