@@ -146,4 +146,8 @@
       }
     }
   }
+
+  &.--balanced {
+    text-wrap: balance;
+  }
 }
