@@ -84,36 +84,44 @@ get_header();
             <div class="c-portfolio__content o-col-12 o-col-xl-8">
                 <p class="c-portfolio__subheadline c-subheadline">Portfolio</p>
                 <h2 class="c-portfolio__headline c-headline">Einblicke in meine Projekte.</h2>
-                <p class="c-portfolio__text c-wysiwyg">Ausgewählte Arbeiten von Design bis Frontend.</p>
+                <?php if (is_user_logged_in()) { ?>
+                    <p class="c-portfolio__text c-wysiwyg">Ausgewählte Arbeiten von Design bis Frontend.</p>
+                <?php } else { ?>
+                    <p class="c-portfolio__text c-wysiwyg --balanced">Einige meiner Projekte sind aus Datenschutzgründen geschützt. Das Passwort erhalten Sie auf Anfrage oder aus meiner Bewerbung.</p>
+                <?php } ?>
             </div>
         </div>
         
-        <?php
-        $args = array(
-            'post_type'      => 'post',
-            'post__in'       => array(55, 48),
-            'orderby'        => 'post__in',
-        );
-        $blog_query = new WP_Query( $args );
-
-        if ($blog_query->have_posts() ) : ?>
-            <div class="c-portfolio__cards o-row --position-center">
-                <?php
-                    while ( $blog_query->have_posts() ) : $blog_query->the_post(); 
-                        get_template_part( 'template-parts/content', get_post_type() );
-                    endwhile;
-                ?>
-            </div>
+        <?php if (is_user_logged_in()) { ?>
             <?php
-            wp_reset_postdata();
-        endif;
-        ?>
+            $args = array(
+                'post_type'      => 'post',
+                'post__in'       => array(55, 48),
+                'orderby'        => 'post__in',
+            );
+            $blog_query = new WP_Query( $args );
 
-        <div class="c-portfolio__row o-row --position-center">
-            <div class="c-portfolio__content o-col-12 o-col-xl-8">
-                <a class="c-portfolio__button c-button" role="button" href="/portfolio">Alle Projekte ansehen</a>
+            if ($blog_query->have_posts() ) : ?>
+                <div class="c-portfolio__cards o-row --position-center">
+                    <?php
+                        while ( $blog_query->have_posts() ) : $blog_query->the_post(); 
+                            get_template_part( 'template-parts/content', get_post_type() );
+                        endwhile;
+                    ?>
+                </div>
+                <?php
+                wp_reset_postdata();
+            endif;
+            ?>
+
+            <div class="c-portfolio__row o-row --position-center">
+                <div class="c-portfolio__content o-col-12 o-col-xl-8">
+                    <a class="c-portfolio__button c-button" role="button" href="/portfolio">Alle Projekte ansehen</a>
+                </div>
             </div>
-        </div>
+        <?php } else { ?>
+            <?php get_template_part( 'template-parts/content', 'login' ); ?>
+        <?php } ?>
     </section>
 
 </main>
