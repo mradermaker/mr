@@ -94,7 +94,14 @@ get_header();
                 endif;
                 ?>
             <?php } else { ?>
-                <?php get_template_part( 'template-parts/content', 'login' ); ?>
+                <div class="c-login">
+                    <div class="c-login__row o-row --position-center">
+                        <div class="c-login__content o-col-12 o-col-xl-6">
+                            <?php get_template_part( 'template-parts/content', 'info-messages' ); ?>
+                            <?php get_template_part( 'template-parts/content', 'login' ); ?>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         </section>
 
