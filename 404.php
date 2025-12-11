@@ -18,7 +18,7 @@ get_header();
 					<p class="c-text__subheadline c-subheadline">Seite nicht gefunden</p>
 					<h1 class="c-text__headline c-headline">Fehler 404</h1>
 					<p class="c-text__text c-wysiwyg">Diese Seite kann nicht gefunden werden. Es scheint als hätten Sie einen nicht mehr aktuellen Link aufgerufen.</p>
-					<a class="c-text__button c-button" href="<?php echo esc_url(home_url('/')); ?>">Zum Portfolio</a>
+                    <a class="c-text__button c-button" href="<?php echo esc_url(home_url('/')); ?>">Zur Startseite</a>
 				</div>
 			</div>
 		</section>

@@ -62,7 +62,7 @@ get_header();
                         <p>Du bist angemeldet und siehst vertrauliche Arbeitsproben. Bitte nicht weiterleiten oder öffentlich teilen.</p>
                     </div>
                     <div class="c-login__button-group c-button-group">
-                        <a class="c-button" href="<?php echo esc_url(home_url('/')); ?>">Zum Portfolio</a>
+                        <a class="c-button" href="<?php echo esc_url(home_url('/')); ?>">Zur Startseite</a>
                         <a class="c-button --link" href="<?php echo esc_url($logout_url); ?>">Abmelden</a>
                     </div>
                 <?php } else { ?>
