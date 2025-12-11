@@ -1824,6 +1824,9 @@ body:not(:has(> header)) .o-main {
 .c-wysiwyg ul > li ul {
   margin-top: 0.5rem;
 }
+.c-wysiwyg.--balanced {
+  text-wrap: balance;
+}
 
 .c-figure__placeholder {
   width: 100%;
