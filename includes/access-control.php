@@ -8,9 +8,7 @@
 /**
  * Config (page IDs & paths) 
  */
-if (!defined('MR_LOGIN_ID'))   define('MR_LOGIN_ID', 14);
-if (!defined('MR_IMPRINT_ID'))    define('MR_IMPRINT_ID', 19);
-if (!defined('MR_DATA_PROTECTION_ID'))  define('MR_DATA_PROTECTION_ID', 3);
+if (!defined('MR_LOGIN_ID')) define('MR_LOGIN_ID', 14);
 if (!defined('MR_PORTFOLIO_OVERVIEW_ID')) define('MR_PORTFOLIO_OVERVIEW_ID', 68);
 
 /**
