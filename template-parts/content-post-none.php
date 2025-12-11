@@ -8,35 +8,6 @@
  */
  
 // Post
-$post_id = get_the_ID() ?? null;
-$post_link = esc_url(get_permalink($post_id)) ?? null;
-
-$default_cat_name = get_cat_name( get_option('default_category') );
-$default_cat_name_lower = mb_strtolower($default_cat_name);
-$cat_names = wp_list_pluck( (array) get_the_category(), 'name' );
-$cat_names_filtered = array_diff( $cat_names, [ $default_cat_name ] );
-$cat_names_lower = array_map( 'mb_strtolower', $cat_names );
-array_unshift($cat_names_lower, 'alle');
-$cat_names_lower = array_unique($cat_names_lower);
-
-$role = $args['role'] ?? null;
-
-// Content
-$color = get_field('color') ?: '#7f7f7f';
-$image = get_field('image') ?? [];
-$headline = get_field('headline') ?? null;
-$text = get_field('text') ?? null;
-?>
-<?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package mr
- */
- 
-// Post
 $default_cat_name = get_cat_name( get_option('default_category') );
 $default_cat_name_lower = mb_strtolower($default_cat_name);
 
