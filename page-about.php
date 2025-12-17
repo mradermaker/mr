@@ -123,33 +123,39 @@ get_header();
                     ?>
                     <div class="c-handwritten --timeline">
                         <?php get_icon('handwritten-arrow-top', true, ['class' => 'c-handwritten__icon',]); ?>
-                        <span class="c-handwritten__text">nächste berufliche Herausforderung</span>
+                        <span class="c-handwritten__text">Nächster Karriereschritt</span>
                     </div>
-                    <p class="c-timeline-card__date"><?php echo date('Y'); ?></p>
+                    <p class="c-timeline-card__date">ab sofort / nach Vereinbarung</p>
                     <h3 class="c-timeline-card__job-title"><?php echo !empty($job) ? esc_html($job) : 'Frontend Developer / Designerin'; ?></h3>
-                    <p class="c-timeline-card__company"><?php echo !empty($company) ? esc_html($company) : 'Ihre Firma'; ?></p>
+                    <p class="c-timeline-card__company"><?php echo !empty($company) ? esc_html($company) : 'Mein nächstes Team'; ?></p>
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">2024 - heute</p>
+                    <p class="c-timeline-card__date">12/2023 - heute</p>
                     <h3 class="c-timeline-card__job-title">Senior Webdeveloper</h3>
                     <p class="c-timeline-card__company">onOffice GmbH</p>
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">2020 - 2024</p>
-                    <h3 class="c-timeline-card__job-title">Webdesignerin / Webdeveloper</h3>
+                    <p class="c-timeline-card__date">07/2023 - 11/2023</p>
+                    <h3 class="c-timeline-card__job-title">Professional Webdeveloper</h3>
                     <p class="c-timeline-card__company">onOffice GmbH</p>
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">2009 - 2020</p>
+                    <p class="c-timeline-card__date">10/2020 - 06/2023</p>
+                    <h3 class="c-timeline-card__job-title">Professional Webdesigner</h3>
+                    <p class="c-timeline-card__company">onOffice GmbH</p>
+                </article>
+
+                <article class="c-timeline-card">
+                    <p class="c-timeline-card__date">04/2009 - 09/2020</p>
                     <h3 class="c-timeline-card__job-title">Grafik- und Webdesignerin / Webentwicklerin</h3>
                     <p class="c-timeline-card__company">motoin GmbH</p>
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">2008 - 2020</p>
+                    <p class="c-timeline-card__date">01/2008 - 09/2020</p>
                     <h3 class="c-timeline-card__job-title">Grafik- und Webdesignerin / Webentwicklerin</h3>
                     <p class="c-timeline-card__company">visions active media</p>
                 </article>
