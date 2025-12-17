@@ -71,11 +71,33 @@ function get_login_messages(): array {
 			];
 		}
 
-		if (isset($_GET['noaccess']) && $_GET['noaccess'] === 'admin') {
-			$messages[] = [
-				'type' => 'info',
-				'text' => 'Du bist angemeldet, hast aber keinen Zugriff auf den Adminbereich.',
-			];
+		if (isset($_GET['noaccess'])) {
+			switch ($_GET['noaccess']) {
+				case 'admin':
+					$messages[] = [
+						'type' => 'info',
+						'text' => 'Du bist angemeldet, hast aber keinen Zugriff auf den Adminbereich.',
+					];
+					break;
+				case 'portfolio':
+					$messages[] = [
+						'type' => 'info',
+						'text' => 'Einige Projekte sind aus Datenschutzgründen geschützt. Bitte melde dich an, um sie zu sehen.',
+					];
+					break;
+				case 'single':
+					$messages[] = [
+						'type' => 'info',
+						'text' => 'Dieser Inhalt ist geschützt. Bitte melde dich an, um fortzufahren.',
+					];
+					break;
+				default:
+					$messages[] = [
+						'type' => 'info',
+						'text' => 'Dieser Bereich ist geschützt. Bitte melde dich an.',
+					];
+					break;
+			}
 		}
 
 		// Errors

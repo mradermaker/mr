@@ -87,31 +87,50 @@ if (!function_exists('mr_strip_login_status_params')) {
     }
 }
 
-
 /**
  * Redirect portfolio posts when the user is not logged in.
  */
 if (!function_exists('mr_protect_portfolio_posts')) {
     function mr_protect_portfolio_posts(): void {
+
         // Allow logged-in users, admin area, AJAX, REST requests
-        if (is_user_logged_in() || is_admin() || wp_doing_ajax() || ( defined('REST_REQUEST') && REST_REQUEST)) {
+        if (is_user_logged_in() || is_admin() || wp_doing_ajax() || (defined('REST_REQUEST') && REST_REQUEST)) {
             return;
         }
 
-        // only portfolio posts
-        if (!mr_is_portfolio_post()) {
-            return;
+        // Target = portfolio overview, fallback = home
+        $overview_url = get_permalink(MR_PORTFOLIO_OVERVIEW_ID);
+        $fallback_url = home_url('/');
+
+        $target_base = $overview_url ?: $fallback_url;
+
+        // Requested path
+        $request_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+        $request_path = trailingslashit($request_path);
+
+        // Portfolio base path from overview URL (e.g. "/portfolio/")
+        $overview_path = $overview_url ? (parse_url($overview_url, PHP_URL_PATH) ?: '') : '';
+        $overview_path = $overview_path ? trailingslashit($overview_path) : '';
+
+        // Prevent portfolio URL enumeration: anything under /portfolio/* (except overview itself)
+        if ($overview_path && strpos($request_path, $overview_path) === 0) {
+
+            // Allow overview
+            if ($request_path === $overview_path) {
+                return;
+            }
+
+            $target = add_query_arg('noaccess', 'portfolio', $target_base) . '#status';
+            wp_safe_redirect($target);
+            exit;
         }
 
-        $target = get_permalink(MR_PORTFOLIO_OVERVIEW_ID);
-
-        // Fallback if portfolio overwiew page doesn't exist
-        if (!$target) {
-            $target = home_url('/');
+        // Block all single pages
+        if (mr_is_portfolio_post()) {
+            $target = add_query_arg('noaccess', 'single', $target_base) . '#status';
+            wp_safe_redirect($target);
+            exit;
         }
-
-        wp_safe_redirect($target);
-        exit;
     }
     add_action('template_redirect', 'mr_protect_portfolio_posts', 0);
 }
