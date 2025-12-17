@@ -2949,7 +2949,11 @@ body:not(:has(> header)) .o-main {
   gap: var(--row-gap) var(--column-gap);
   margin-left: var(--icon-column);
   padding: var(--box-padding);
-  border: 2px solid var(--color-text);
+}
+@media (min-width: 1200px) {
+  .c-timeline-card {
+    border: 2px solid var(--color-text);
+  }
 }
 .c-timeline-card::before {
   content: "";
@@ -2996,11 +3000,23 @@ body:not(:has(> header)) .o-main {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position: relative;
+  padding-left: var(--box-padding);
 }
 @media (min-width: 1200px) {
   .c-timeline-card__roles {
     gap: 0.75rem;
   }
+}
+.c-timeline-card__roles::before {
+  content: "";
+  display: block;
+  width: 2px;
+  position: absolute;
+  background: color-mix(in srgb, var(--color-text) 66.6666%, var(--color-bg) 33.3333%);
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
 }
 .c-timeline-card__role {
   display: flex;
