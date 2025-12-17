@@ -63,6 +63,28 @@
 
   &__location {}
 
+  &__roles {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @include media-breakpoint-up(xl) {
+      gap: 0.75rem;
+    }
+  }
+
+  &__role {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__role-title {}
+
+  &__role-date {
+    @include font-size($small-font-size, $small-line-height);
+    color: color-mix(in srgb, var(--color-text) 66.6666%, var(--color-bg) 33.3333%);
+  }
+
   &.--future {
     margin-top: 2.5rem;
   }

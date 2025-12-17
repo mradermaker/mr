@@ -131,39 +131,32 @@ get_header();
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">12/2023 - heute</p>
-                    <h3 class="c-timeline-card__job-title">Senior Webdeveloper</h3>
+                    <p class="c-timeline-card__date">10/2020 – heute</p>
+                    <h3 class="c-timeline-card__job-title">Webdeveloper / Webdesignerin</h3>
                     <p class="c-timeline-card__company">onOffice GmbH</p>
+
+                    <ul class="c-timeline-card__roles">
+                        <li class="c-timeline-card__role"><strong class="c-timeline-card__role-title">Senior Webdeveloper</strong> <span class="c-timeline-card__role-date">(12/2023 – heute)</span></li>
+                        <li class="c-timeline-card__role"><strong class="c-timeline-card__role-title">Professional Webdeveloper</strong> <span class="c-timeline-card__role-date">(07/2023 – 11/2023)</span></li>
+                        <li class="c-timeline-card__role"><strong class="c-timeline-card__role-title">Professional Webdesignerin</strong> <span class="c-timeline-card__role-date">(10/2020 – 06/2023)</span></li>
+                    </ul>
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">07/2023 - 11/2023</p>
-                    <h3 class="c-timeline-card__job-title">Professional Webdeveloper</h3>
-                    <p class="c-timeline-card__company">onOffice GmbH</p>
-                </article>
-
-                <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">10/2020 - 06/2023</p>
-                    <h3 class="c-timeline-card__job-title">Professional Webdesigner</h3>
-                    <p class="c-timeline-card__company">onOffice GmbH</p>
-                </article>
-
-                <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">04/2009 - 09/2020</p>
+                    <p class="c-timeline-card__date">04/2009 – 09/2020</p>
                     <h3 class="c-timeline-card__job-title">Grafik- und Webdesignerin / Webentwicklerin</h3>
                     <p class="c-timeline-card__company">motoin GmbH</p>
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">01/2008 - 09/2020</p>
+                    <p class="c-timeline-card__date">02/2007 – 09/2020</p>
                     <h3 class="c-timeline-card__job-title">Grafik- und Webdesignerin / Webentwicklerin</h3>
                     <p class="c-timeline-card__company">visions active media</p>
-                </article>
 
-                <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">2007</p>
-                    <h3 class="c-timeline-card__job-title">Praktikum</h3>
-                    <p class="c-timeline-card__company">visions active media</p>
+                    <ul class="c-timeline-card__roles">
+                        <li class="c-timeline-card__role"><strong class="c-timeline-card__role-title">Grafik- und Webdesignerin / Webentwicklerin</strong> <span class="c-timeline-card__role-date">(01/2008 – 09/2020)</span></li>
+                        <li class="c-timeline-card__role"><strong class="c-timeline-card__role-title">Praktikum</strong> <span class="c-timeline-card__role-date">(02/2007 – 12/2007)</span></li>
+                    </ul>
                 </article>
 
                 <article class="c-timeline-card">
@@ -173,7 +166,7 @@ get_header();
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">2003 - 2006</p>
+                    <p class="c-timeline-card__date">2003 – 2006</p>
                     <h3 class="c-timeline-card__job-title">Graduat Grafikdesign (BAC+3)</h3>
                     <p class="c-timeline-card__company">Ecole Supérieure des Arts Saint-Luc (Belgien)</p>
                 </article>
@@ -185,7 +178,7 @@ get_header();
                 </article>
 
                 <article class="c-timeline-card">
-                    <p class="c-timeline-card__date">1996 - 2002</p>
+                    <p class="c-timeline-card__date">1996 – 2002</p>
                     <h3 class="c-timeline-card__job-title">Abitur</h3>
                     <p class="c-timeline-card__company">Robert-Schuman-Institut (Belgien)</p>
                 </article>

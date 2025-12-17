@@ -2991,6 +2991,26 @@ body:not(:has(> header)) .o-main {
 .c-timeline-card__date {
   justify-self: center;
 }
+.c-timeline-card__roles {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 1200px) {
+  .c-timeline-card__roles {
+    gap: 0.75rem;
+  }
+}
+.c-timeline-card__role {
+  display: flex;
+  flex-direction: column;
+}
+.c-timeline-card__role-date {
+  font-size: 0.9375rem;
+  line-height: 24px;
+  color: color-mix(in srgb, var(--color-text) 66.6666%, var(--color-bg) 33.3333%);
+}
 .c-timeline-card.--future {
   margin-top: 2.5rem;
 }
