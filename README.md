@@ -1,2 +1,8 @@
 # monika-radermaker.de
-###### Made with ❤️ & ☕
+
+Mein persönliches Portfolio als Frontend Entwicklerin & Designerin.  
+[monika-radermaker.de](https://monika-radermaker.de)
+
+---
+
+*Made with ❤️ & ☕*
