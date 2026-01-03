@@ -24,15 +24,34 @@ if (!function_exists('mr_is_portfolio_user')) {
 }
 
 /**
- * Check if the current page is a post.
+ * Check if the current page is a protected post.
  */
 if (!function_exists('mr_is_portfolio_post')) {
     function mr_is_portfolio_post(): bool {
-        if (is_single()) {
+        if (!is_singular('post')) {
+            return false;
+        }
+
+        $post_id = get_queried_object_id();
+        if (!$post_id) {
             return true;
         }
 
-        return false;
+        // Not protected posts (Tag-ID 8)
+        if (has_term(8, 'post_tag', $post_id)) {
+            return false;
+        }
+
+        return true;
+    }
+}
+
+/**
+ * Check if the current page is a post.
+ */
+if (!function_exists('mr_is_public_post')) {
+    function mr_is_public_post(): bool {
+        return is_single() && has_term(8, 'post_tag');
     }
 }
 
@@ -93,15 +112,23 @@ if (!function_exists('mr_strip_login_status_params')) {
 if (!function_exists('mr_protect_portfolio_posts')) {
     function mr_protect_portfolio_posts(): void {
 
-        // Allow logged-in users, admin area, AJAX, REST requests
-        if (is_user_logged_in() || is_admin() || wp_doing_ajax() || (defined('REST_REQUEST') && REST_REQUEST)) {
+        // Allow admin area, AJAX, REST requests
+        if (is_admin() || wp_doing_ajax() || (defined('REST_REQUEST') && REST_REQUEST)) {
+            return;
+        }
+        // Allow logged-in users
+        if (is_user_logged_in()) {
+            return;
+        }
+
+        // Allow public posts (Tag ID 8)
+        if (is_single() && has_term(8, 'post_tag', get_queried_object_id())) {
             return;
         }
 
         // Target = portfolio overview, fallback = home
         $overview_url = get_permalink(MR_PORTFOLIO_OVERVIEW_ID);
         $fallback_url = home_url('/');
-
         $target_base = $overview_url ?: $fallback_url;
 
         // Requested path

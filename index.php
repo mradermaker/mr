@@ -13,6 +13,28 @@
  */
 
 get_header();
+
+
+if (!is_user_logged_in()) {
+    $args = array(
+        'post_type'         => 'post',
+        'posts_per_page'    => -1,
+        'tag__in'           => array(8), // not protected tag
+        'meta_key'          => 'sort',
+        'orderby'           => 'meta_value_num',
+        'order'             => 'DESC',
+    );
+} else {
+    $args = array(
+        'post_type'         => 'post',
+        'posts_per_page'    => -1,
+        'meta_key'          => 'sort',
+        'orderby'           => 'meta_value_num',
+        'order'             => 'DESC',
+    );
+}
+
+$blog_query = new WP_Query($args);
 ?>
 
     <main id="main" class="o-main">
@@ -22,33 +44,19 @@ get_header();
                 <div class="c-portfolio__content o-col-12 o-col-xl-8">
                     <p class="c-portfolio__subheadline c-subheadline">Portfolio</p>
                     <h1 class="c-portfolio__headline c-headline">Einblicke in meine Projekte.</h1>
-                    <?php if (is_user_logged_in()) { ?>
-                        <p class="c-portfolio__text c-wysiwyg">Ausgewählte Arbeiten von Design bis Frontend.</p>
-                    <?php } else { ?>
-                        <p class="c-portfolio__text c-wysiwyg --balanced">Einige meiner Projekte sind aus Datenschutzgründen geschützt. Das Passwort erhalten Sie auf Anfrage oder aus meiner Bewerbung.</p>
-                    <?php } ?>
+                    <p class="c-portfolio__text c-wysiwyg">Ausgewählte Arbeiten von Design bis Frontend.</p>
                 </div>
             </div>
 
-            <?php if (is_user_logged_in()) { ?>        
-                <?php
-                $args = array(
-                    'post_type'         => 'post',
-                    'posts_per_page'    => -1,
-                    'meta_key'          => 'sort',
-                    'orderby'           => 'meta_value_num',
-                    'order'             => 'DESC',
-                    'tag__not_in'       => array(8),
-                );
-                $blog_query = new WP_Query( $args );
+            <?php
+            if ($blog_query->have_posts() ) :
 
-                if ($blog_query->have_posts() ) :
+                $categories = get_categories();
+                $default_cat_id = (int) get_option('default_category');
+                $total_posts = (int) $blog_query->found_posts;
+                ?>
 
-                    $categories = get_categories();
-                    $default_cat_id = (int) get_option('default_category');
-                    $total_posts = (int) $blog_query->found_posts;
-                    ?>
-
+                <?php if ($total_posts > 1) { ?>
                     <div class="c-portfolio__navigation">
                         <?php if (!empty($categories) && is_array($categories)) { ?>
                             <ul class="c-portfolio__categories c-button-group --full-width --position-center" aria-label="Portfolio filtern">
@@ -80,20 +88,29 @@ get_header();
                         )
                         );?>
                     </div>
+                <?php } ?>
                     
-                    <div id="portfolio-grid" class="c-portfolio__cards o-row" role="list">
-                        <?php
-                            while ( $blog_query->have_posts() ) : $blog_query->the_post();
-                                get_template_part( 'template-parts/content', get_post_type(), ['role' => 'listitem'] );
-                            endwhile;
-                            // get_template_part( 'template-parts/content', get_post_type().'-none', ['role' => 'listitem'] );
-                        ?>
-                    </div>
+                <div id="portfolio-grid" class="c-portfolio__cards o-row --position-center" role="list">
                     <?php
-                    wp_reset_postdata();
-                endif;
-                ?>
-            <?php } else { ?>
+                        while ( $blog_query->have_posts() ) : $blog_query->the_post();
+                            get_template_part( 'template-parts/content', get_post_type(), ['role' => 'listitem'] );
+                        endwhile;
+                        // get_template_part( 'template-parts/content', get_post_type().'-none', ['role' => 'listitem'] );
+                    ?>
+                </div>
+                <?php
+                wp_reset_postdata();
+            endif;
+            ?>
+        
+
+            <?php if (!is_user_logged_in()) { ?>
+                <div class="c-portfolio__row o-row --position-center">
+                    <div class="c-portfolio__content o-col-12 o-col-xl-8">
+                        <h2 class="c-portfolio__headline c-headline">Login</h2>
+                        <p class="c-portfolio__text c-wysiwyg --balanced">Einige meiner Projekte sind aus Datenschutzgründen geschützt. Das Passwort erhalten Sie auf Anfrage oder aus meiner Bewerbung.</p>
+                    </div>
+                </div>
                 <div class="c-login">
                     <div class="c-login__row o-row --position-center">
                         <div class="c-login__content o-col-12 o-col-xl-6">
@@ -104,7 +121,6 @@ get_header();
                 </div>
             <?php } ?>
         </section>
-
     </main>
 
 <?php

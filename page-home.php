@@ -84,21 +84,43 @@ get_header();
             <div class="c-portfolio__content o-col-12 o-col-xl-8">
                 <p class="c-portfolio__subheadline c-subheadline">Portfolio</p>
                 <h2 class="c-portfolio__headline c-headline">Einblicke in meine Projekte.</h2>
-                <?php if (is_user_logged_in()) { ?>
-                    <p class="c-portfolio__text c-wysiwyg">Ausgewählte Arbeiten von Design bis Frontend.</p>
-                <?php } else { ?>
-                    <p class="c-portfolio__text c-wysiwyg --balanced">Einige meiner Projekte sind aus Datenschutzgründen geschützt. Das Passwort erhalten Sie auf Anfrage oder aus meiner Bewerbung.</p>
-                <?php } ?>
+                <p class="c-portfolio__text c-wysiwyg">Ausgewählte Arbeiten von Design bis Frontend.</p>
             </div>
         </div>
         
-        <?php if (is_user_logged_in()) { ?>
+
             <?php
-            $args = array(
-                'post_type'      => 'post',
-                'post__in'       => array(55, 48),
-                'orderby'        => 'post__in',
-            );
+            if (!is_user_logged_in()) {
+                $args = array(
+                    'post_type'      => 'post',
+                    'posts_per_page' => -1,
+                    'tax_query' => array(
+                        'relation' => 'AND',
+                        array(
+                            'taxonomy' => 'post_tag',
+                            'field'    => 'term_id',
+                            'terms'    => array(8),
+                        ),
+                        array(
+                            'taxonomy' => 'post_tag',
+                            'field'    => 'term_id',
+                            'terms'    => array(9),
+                        ),
+                    ),
+                    'meta_key' => 'sort',
+                    'orderby'  => 'meta_value_num',
+                    'order'    => 'DESC',
+                );
+            } else {
+                $args = array(
+                    'post_type'         => 'post',
+                    'posts_per_page'    => -1,
+                    'tag__in'           => array(9),
+                    'meta_key'          => 'sort',
+                    'orderby'           => 'meta_value_num',
+                    'order'             => 'DESC',
+                );
+            }
             $blog_query = new WP_Query( $args );
 
             if ($blog_query->have_posts() ) : ?>
@@ -114,21 +136,30 @@ get_header();
             endif;
             ?>
 
-            <div class="c-portfolio__row o-row --position-center">
-                <div class="c-portfolio__content o-col-12 o-col-xl-8">
-                    <a class="c-portfolio__button c-button" role="button" href="/portfolio">Alle Projekte ansehen</a>
-                </div>
-            </div>
-        <?php } else { ?>
-            <div class="c-login">
-                <div class="c-login__row o-row --position-center">
-                    <div class="c-login__content o-col-12 o-col-xl-6">
-                        <?php get_template_part( 'template-parts/content', 'info-messages' ); ?>
-                        <?php get_template_part( 'template-parts/content', 'login' ); ?>
+            <?php if (is_user_logged_in()) { ?>
+                <div class="c-portfolio__row o-row --position-center">
+                    <div class="c-portfolio__content o-col-12 o-col-xl-8">
+                        <a class="c-portfolio__button c-button" role="button" href="/portfolio">Alle Projekte ansehen</a>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        
+            <?php if (!is_user_logged_in()) { ?>
+                <div class="c-portfolio__row o-row --position-center">
+                    <div class="c-portfolio__content o-col-12 o-col-xl-8">
+                        <h2 class="c-portfolio__headline c-headline">Login</h2>
+                        <p class="c-portfolio__text c-wysiwyg --balanced">Einige meiner Projekte sind aus Datenschutzgründen geschützt. Das Passwort erhalten Sie auf Anfrage oder aus meiner Bewerbung.</p>
+                    </div>
+                </div>
+                <div class="c-login">
+                    <div class="c-login__row o-row --position-center">
+                        <div class="c-login__content o-col-12 o-col-xl-6">
+                            <?php get_template_part( 'template-parts/content', 'info-messages' ); ?>
+                            <?php get_template_part( 'template-parts/content', 'login' ); ?>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
     </section>
 
 </main>
