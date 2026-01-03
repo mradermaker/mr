@@ -375,13 +375,17 @@
                 "ACF Blocks": "ACF Blocks",
                 "onOffice WP-Plugin": "onOffice WP-Plugin",
                 "WPML": "WPML",
+                "Vue 3": "Vue 3",
+                "TypeScript": "TypeScript",
+                "JavaScript": "JavaScript",
                 "HTML": "HTML",
                 "SCSS": "SCSS",
                 "CSS": "CSS",
                 "BEM \/ ITCSS": "BEM \/ ITCSS",
                 "Bootstrap": "Bootstrap",
-                "Javascript": "Javascript",
-                "JQuery": "JQuery",
+                "jQuery": "jQuery",
+                "Vite": "Vite",
+                "API-Anbindung": "API-Anbindung",
                 "Affinity": "Affinity",
                 "Axure": "Axure",
                 "Figma": "Figma",
@@ -2220,5 +2224,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765130349
+    "modified": 1767474449
 }
