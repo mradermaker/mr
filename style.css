@@ -3183,7 +3183,7 @@ body:not(:has(> header)) .o-main {
 }
 .--full .c-post__visual {
   aspect-ratio: 2/3;
-  padding: 2rem;
+  padding: 2rem 4rem;
 }
 @media (min-width: 1200px) {
   .--full .c-post__visual {

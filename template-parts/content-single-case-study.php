@@ -158,13 +158,13 @@ for ($i = 1; $i <= 3; $i++) {
             </div>
         <?php } ?>
         
-        <!-- <?php if (!empty($text_more)) { ?>
-            <div class="c-post__row o-row --position-center">
+        <?php if (!empty($text_more)) { ?>
+            <!-- <div class="c-post__row o-row --position-center">
                 <div class="c-post__content o-col-12 o-col-xl-8">
-                    <div class="c-post__text c-wysiwyg"><?php echo $text_more; ?></div>
+                    <div class="c-post__text c-wysiwyg"><?php // echo $text_more; ?></div>
                 </div>
-            </div>
-        <?php } ?> -->
+            </div> -->
+        <?php } ?>
 
         <?php foreach ($case_studies as $case_study) { ?>
             <div class="c-post__case-studies o-row">
