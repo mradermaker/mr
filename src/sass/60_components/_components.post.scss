@@ -201,7 +201,9 @@
       }
     }
 
-    .--print & {}
+    .--print & {
+      background: var(--color-image-bg);
+    }
   }
 
   &__visual-picture {

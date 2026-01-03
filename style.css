@@ -3190,6 +3190,9 @@ body:not(:has(> header)) .o-main {
     aspect-ratio: 3/4;
   }
 }
+.--print .c-post__visual {
+  background: var(--color-image-bg);
+}
 .c-post__visual-picture {
   overflow: hidden;
   display: flex;

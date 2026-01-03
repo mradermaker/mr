@@ -58,10 +58,10 @@ for ($i = 1; $i <= 10; $i++) {
 $screens = [];
 $fulls = [];
 foreach ($screenshots as $screenshot) {
-    if (!empty($screenshot['type']) && $screenshot['type'] === 'screen') {
-        $screens[] = $screenshot;
-    } else {
+    if (!empty($screenshot['type']) && $screenshot['type'] === 'full') {
         $fulls[] = $screenshot;
+    } else {
+        $screens[] = $screenshot;
     }
 }
 
@@ -203,7 +203,7 @@ for ($i = 1; $i <= 3; $i++) {
                         if (empty($fulls)) break;
                         $screenshot = array_shift($fulls);
                         ?>
-                        <figure class="c-post__visual-wrapper --full o-col-12 o-col-md-6">
+                        <figure class="c-post__visual-wrapper --<?php echo $screenshot['type']; ?> o-col-12 o-col-md-6">
                             <div class="c-post__visual">
                                 <?php
                                 get_picture($screenshot['image'], [
@@ -221,7 +221,7 @@ for ($i = 1; $i <= 3; $i++) {
                     if (!empty($screens)) {
                         $screenshot = array_shift($screens);
                         ?>
-                        <div class="c-post__visual-wrapper --screen o-col-12">
+                        <div class="c-post__visual-wrapper --<?php echo $screenshot['type']; ?> o-col-12">
                             <figure class="c-post__visual">
                                 <?php
                                 get_picture($screenshot['image'], [
