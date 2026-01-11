@@ -49,7 +49,11 @@ get_header();
                         <?php get_icon('code', true, ['class' => 'c-skill-teaser-card__icon']); ?>
                         <h3 class="c-skill-teaser-card__headline c-headline">Code & Umsetzung</h3>
                     </div>
-                    <p class="c-skill-teaser-card__content c-wysiwyg">WordPress mit eigenen Themes und ACF, HTML/SCSS, JavaScript und PHP. Strukturierter Code mit BEM/ITCSS, responsive und performanceorientiert umgesetzt.</p>
+                    <div class="c-skill-teaser-card__content">
+                        <p>WordPress mit eigenen Themes und ACF, HTML/SCSS, JavaScript und PHP.</p>
+                        <p>Strukturierter Code mit BEM/ITCSS, responsive und performanceorientiert umgesetzt.</p>
+                        <p>Aktuell lerne ich: Vue 3 und TypeScript.</p>
+                    </div>
                 </div>
 
                 <div class="c-skill-teaser-card">
@@ -57,7 +61,10 @@ get_header();
                         <?php get_icon('design', true, ['class' => 'c-skill-teaser-card__icon']); ?>
                         <h3 class="c-skill-teaser-card__headline c-headline">Design & Gestaltung</h3>
                     </div>
-                    <p class="c-skill-teaser-card__content c-wysiwyg">Bachelor in Design mit Erfahrung in Screendesigns, Corporate Design und Print. Gestaltung und Prototyping mit Adobe Creative Cloud und Axure.</p>
+                    <div class="c-skill-teaser-card__content">
+                        <p>Bachelor in Design mit Erfahrung in Screendesigns, Corporate Design und Print.</p>
+                        <p>Gestaltung und Prototyping mit Adobe Creative Cloud und Axure.</p>
+                    </div>
                 </div>
 
                 <div class="c-skill-teaser-card">
@@ -65,7 +72,9 @@ get_header();
                         <?php get_icon('accessibility', true, ['class' => 'c-skill-teaser-card__icon']); ?>
                         <h3 class="c-skill-teaser-card__headline c-headline">Barrierefreiheit</h3>
                     </div>
-                    <p class="c-skill-teaser-card__content c-wysiwyg">BFSG- und WCAG-konforme Umsetzung mit semantischem HTML, Unterstützung für assistive Technologien und sinnvollen ARIA-Attributen.</p>
+                    <div class="c-skill-teaser-card__content">
+                        <p>BFSG- und WCAG-konforme Umsetzung mit semantischem HTML, Unterstützung für assistive Technologien und sinnvollen ARIA-Attributen.</p>
+                    </div>
                 </div>
 
                 <div class="c-skill-teaser-card">
@@ -73,7 +82,10 @@ get_header();
                         <?php get_icon('learning', true, ['class' => 'c-skill-teaser-card__icon']); ?>
                         <h3 class="c-skill-teaser-card__headline c-headline">Arbeitsweise & Soft Skills</h3>
                     </div>
-                    <p class="c-skill-teaser-card__content c-wysiwyg">Git, DevTools, Testing/QA. Strukturiert, eigenständig, qualitätsorientiert und teamfähig.</p>
+                    <div class="c-skill-teaser-card__content">
+                        <p>Git, DevTools, Testing/QA.</p>
+                        <p>Strukturiert, eigenständig, qualitätsorientiert und teamfähig.</p>
+                    </div>
                 </div>
             </div>
         </div>
