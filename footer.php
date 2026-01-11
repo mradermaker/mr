@@ -33,13 +33,13 @@
                             </a>
                         </li>
                         <li class="c-button-group__list-item">
-                            <a class="c-button-group__item c-icon-button" href="https://www.xing.com/profile/Monika_Radermaker" target="_blank" rel="noopener noreferrer">
+                            <a class="c-button-group__item c-icon-button" href="https://www.linkedin.com/in/monika-radermaker" target="_blank" rel="noopener noreferrer">
                                 <?php get_icon('linkedin', true, ['class' => 'c-icon-button__icon']); ?>
                                 <span class="c-icon-button__text u-screen-reader-only">linkedin</span>
                             </a>
                         </li>
                         <li class="c-button-group__list-item">
-                            <a class="c-button-group__item c-icon-button" href="https://www.linkedin.com/in/monika-radermaker/" target="_blank" rel="noopener noreferrer">
+                            <a class="c-button-group__item c-icon-button" href="https://www.xing.com/profile/Monika_Radermaker/" target="_blank" rel="noopener noreferrer">
                                 <?php get_icon('xing', true, ['class' => 'c-icon-button__icon']); ?>
                                 <span class="c-icon-button__text u-screen-reader-only">Xing</span>
                             </a>
