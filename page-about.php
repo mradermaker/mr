@@ -51,8 +51,9 @@ get_header();
                         <li class="c-skill-card__list-item">CSS3 / SCSS (Sass)</li>
                         <li class="c-skill-card__list-item">BEM / ITCSS</li>
                         <li class="c-skill-card__list-item">JavaScript</li>
-                        <li class="c-skill-card__list-item">jQuery</li>
                         <li class="c-skill-card__list-item">PHP</li>
+                        <li class="c-skill-card__list-item">Vue 3 (Grundkenntnisse)</li>
+                        <li class="c-skill-card__list-item">TypeScript (Grundkenntnisse)</li>
                     </ul>
                 </div>
                 <div class="c-skill-card__wrapper o-col-12 o-col-md-6 o-col-xl-7">
@@ -61,13 +62,11 @@ get_header();
                         <li class="c-skill-card__list-item">WordPress</li>
                         <li class="c-skill-card__list-item">ACF / ACF Blocks (Advanced Custom Fields)</li>
                         <li class="c-skill-card__list-item">Git / GitHub</li>
-                        <li class="c-skill-card__list-item">DevTools (Debugging, Performance, Accessibility-Checks)</li>
-                        <li class="c-skill-card__list-item">CLI (Grundkenntnisse)</li>
                         <li class="c-skill-card__list-item">Visual Studio Code</li>
+                        <li class="c-skill-card__list-item">Node.js / npm / Vite & CLI (Entwicklungsumgebung, Grundkenntnisse)</li>
+                        <li class="c-skill-card__list-item">DevTools (Debugging, Performance, Accessibility-Checks)</li>
                         <li class="c-skill-card__list-item">Barrierefreiheit (BFSG / WCAG-konforme Umsetzung)</li>
                         <li class="c-skill-card__list-item">Testing & Performance-Optimierung</li>
-                        <li class="c-skill-card__list-item">Interesse an modernen Frameworks</li>
-                        <!-- <li>Vue (Grundkenntnisse)</li> -->
                     </ul>
                 </div>
             </div>
@@ -85,6 +84,7 @@ get_header();
                         <li class="c-skill-card__list-item">Adobe Photoshop</li>
                         <li class="c-skill-card__list-item">Adobe Illustrator</li>
                         <li class="c-skill-card__list-item">Adobe InDesign</li>
+                        <li class="c-skill-card__list-item">Affinity</li>
                     </ul>
                 </div>
                 <div class="c-skill-card__wrapper o-col-12 o-col-md-6 o-col-xl-7">
@@ -95,7 +95,8 @@ get_header();
                         <li class="c-skill-card__list-item">Printdesign (Broschüren, Flyer, Plakate, Geschäftsausstattung)</li>
                         <li class="c-skill-card__list-item">Barrierefreie Gestaltung (BFSG / WCAG-konform)</li>
                         <li class="c-skill-card__list-item">Prototyping & Interaktionsdesign</li>
-                        <li class="c-skill-card__list-item">UI- & UX-Design</li>
+                        <li class="c-skill-card__list-item">UI-Design</li>
+                        <li class="c-skill-card__list-item">Icon-Gestaltung</li>
                         <li class="c-skill-card__list-item">Bachelor in Design</li>
                     </ul>
                 </div>
